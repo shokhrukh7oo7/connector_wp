@@ -3168,6 +3168,7 @@ p {
 }
 .product-item-wrapper .product-container .item .left-wrapper img {
   width: 177px;
+  max-width: 177px;
   height: 220px;
   border-radius: 12px;
 }
