@@ -90,6 +90,9 @@ p {
 ::placeholder {
   color: unset;
 }
+.page {
+  margin: 0;
+}
 /* LAYOUT END */
 
 /* HEADER START */
