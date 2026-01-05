@@ -1,21 +1,21 @@
 /* FONTS START */
 @font-face {
   font-family: "Suisse";
-  src: url("/assets/fonts/fonnts.com-Suisse_Intl_Regular.ttf");
+  src: url("../fonts/fonnts.com-Suisse_Intl_Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Suisse";
-  src: url("/assets/fonts/fonnts.com-Suisse_Intl_Medium.ttf");
+  src: url("../fonts/fonnts.com-Suisse_Intl_Medium.ttf");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Suisse";
-  src: url("/assets/fonts/fonnts.com-Suisse_Intl_Bold.ttf");
+  src: url("../fonts/fonnts.com-Suisse_Intl_Bold.ttf");
   font-weight: 700;
   font-style: normal;
 }

@@ -1,0 +1,1327 @@
+<?php
+/*
+Template name: Главная страница
+*/
+get_header();
+?>
+
+<!-- Main start -->
+<main>
+    <section>
+        <div class="home-banner-wrapper"
+            style="background-image: url('<?= get_template_directory_uri() ?> /assets/images/home/banner.png')">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>IT обслуживание организации в Ташкенте, Узбекистане</h1>
+                    <p>Хочешь, чтобы работало хорошо? Мы сделаем!</p>
+                    <a href="#">Подробнее о нас</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- additional start -->
+    <section>
+        <div class="additional-section-wrapper">
+            <div class="container">
+                <div class="additional-section-content">
+                    <div class="additional-top-wrapper">
+                        <div class="additional-top-left-wrapper">
+                            <ul>
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    С 2009 года на рынке IT Узбекистана
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    Каждый месяц отчет о проделанной работе!
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    Плановые и срочные выезды специалистов
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    Непрерывный мониторинг IT инфраструктуры
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    IT аудит Вашей организации
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    Консультации и рекомендации по IT системам
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    Гарантия качества выполняемых работ
+                                </li>
+
+                                <li>
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                        alt="image" />
+                                    Безлимитная бесплатная заправка/замена картриджей для
+                                    абонентов
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="additional-top-right-wrapper">
+                            <!-- <h2>17 лет</h2>
+                  <p>На рынке</p> -->
+                            <h2>
+                                <span class="counter" data-start-year="2008">0</span>
+                                <span class="counter-suffix">лет</span>
+                            </h2>
+                            <p>На рынке</p>
+                        </div>
+                    </div>
+
+                    <div class="additional-bottom-wrapper">
+                        <p>
+                            Мы, это прежде всего команда людей любящих свою работу и
+                            состоящая из профессионалов своего дела. Профессионал это не
+                            «смесь Супермена с Эйнштейном», а человек который зарабатывает
+                            и живет за счет работы в своем направлении. <br />
+                            Мы не самые «крутые», но кое что можем предложить. За плечами
+                            у нас многолетний опыт с 2009 года работы по строительству и
+                            обслуживанию систем в сфере IT в Узбекистане. Есть понимание
+                            того, как должны быть организованы и выполнены работы. Сотни
+                            реализованных проектов, десятки абонентов и несчетное
+                            количество разовых заказов. На этом сайте мы постарались
+                            рассказать о том как мы работаем и какие выгоды получают наши
+                            клиенты.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- additional end -->
+
+    <!-- service start -->
+    <section>
+        <div class="container">
+            <div class="service-wrapper">
+                <div class="service-header-wrapper">
+                    <a href="#">Услуги</a>
+                    <h3>
+                        Мы предоставляем <br />
+                        полный цикл IT услуг
+                    </h3>
+                </div>
+                <div class="service-content-wrapper">
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-1.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-1.svg" alt="image" />
+                            </div>
+                            <p>
+                                IT <br />
+                                обслуживание
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-2.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-2.svg" alt="image" />
+                            </div>
+                            <p>
+                                Сервисный <br />
+                                центр
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-3.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-3.svg" alt="image" />
+                            </div>
+                            <p>
+                                Поставка <br />
+                                лицензионного ПО
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-4.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-4.svg" alt="image" />
+                            </div>
+                            <p>
+                                Инсталяция и <br />
+                                настройка ПО
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-5.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-5.svg" alt="image" />
+                            </div>
+                            <p>
+                                Проектирование <br />
+                                ИТ систем
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-6.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-6.svg" alt="image" />
+                            </div>
+                            <p>
+                                Решение <br />
+                                нестандартных задач
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-7.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-7.svg" alt="image" />
+                            </div>
+                            <p>
+                                Облачные <br />
+                                услуги
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-8.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-8.svg" alt="image" />
+                            </div>
+                            <p>
+                                Монтаж <br />
+                                IT систем
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-9.png"
+                            alt="image" />
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-9.svg" alt="image" />
+                            </div>
+                            <p>
+                                Поставка IT <br />
+                                товаров
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service end -->
+
+    <!-- directions start -->
+    <section>
+        <div class="container">
+            <div class="directions-wrapper">
+                <div class="directions-header-wrapper">
+                    <a href="#">Направления</a>
+                    <h3>Специальные направления деятельности</h3>
+                    <p>
+                        В этом разделе мы решили показать еще больше услуг, которые
+                        можем предложить для Вашей организации:
+                    </p>
+                </div>
+
+                <div class="directions-content-wrapper">
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-1.svg?>"
+                                    alt="image" />
+                            </div>
+                            <h6>Видеонаблюдение</h6>
+                            <p>
+                                Следите за происходящим онлайн 24/7 - контроль, безопасность
+                                и спокойствие
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-2.svg" alt="image" />
+                            </div>
+                            <h6>Контроль доступа (СКУД)</h6>
+                            <p>
+                                Управление входом и выходом сотрудников с гибкой настройкой
+                                прав доступа
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-3.svg" alt="image" />
+                            </div>
+                            <h6>IT-безопасность</h6>
+                            <p>Комплексная защита от киберугроз и утечек данных.</p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-4.svg" alt="image" />
+                            </div>
+                            <h6>Серверы</h6>
+                            <p>
+                                Надёжные серверные решения для стабильной работы Вашей
+                                организации.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-5.svg" alt="image" />
+                            </div>
+                            <h6>Лоĸальные сети ЛВС/СКС/ ВОЛС</h6>
+                            <p>
+                                Строим быстрые и надёжные сети - от офиса до крупного
+                                предприятия.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-6.svg" alt="image" />
+                            </div>
+                            <h6>IP-Телефония</h6>
+                            <p>
+                                Экономия и удобство: звонки через интернет с полной
+                                интеграцией.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-7.svg" alt="image" />
+                            </div>
+                            <h6>Корпоративный Wi-Fi</h6>
+                            <p>
+                                Стабильный интернет без сбоев - для сотрудников, гостей и
+                                клиентов.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-8.svg" alt="image" />
+                            </div>
+                            <h6>Звукоусиление</h6>
+                            <p>
+                                Системы озвучивания и оповещения для залов, комнат и
+                                открытых пространств.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-9.svg" alt="image" />
+                            </div>
+                            <h6>ОПС (пожарная сигнализация)</h6>
+                            <p>
+                                Системы пожарной безопасности для защиты жизни и имущества.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-10.svg"
+                                    alt="image" />
+                            </div>
+                            <h6>Решения для видео презентаций</h6>
+                            <p>
+                                С решениями от нашей команды, у Вас будут яркие презентации
+                                и демонстрации.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-11.svg"
+                                    alt="image" />
+                            </div>
+                            <h6>Видео ĸонференц-связь (ВКС)</h6>
+                            <p>
+                                Удалённые встречи так, будто все участники в одном зале.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-12.svg"
+                                    alt="image" />
+                            </div>
+                            <h6>Аудио ĸонференции</h6>
+                            <p>
+                                Чистый звук и удобные системы для групповых переговоров и
+                                совещаний.
+                            </p>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a href="#">Узнать больше</a>
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- directions end -->
+
+    <!-- banner section start -->
+    <section>
+        <div class="banner-equipment"
+            style="background-image: url('<?= get_template_directory_uri() ?> /assets/images/home/banner-2.png')">
+            <div class="container">
+                <div class="banner-equipment-content-wrapper">
+                    <div class="banner-equipment-header">
+                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/zetrix.png" alt="image" />
+                        <p>
+                            OOO ≪ZETRIX≫ является торговой фирмой входящей <br />
+                            в состав группы компаний #connector.
+                        </p>
+                    </div>
+
+                    <div class="banner-equipment-body">
+                        <h1>Поставка IT товаров</h1>
+                        <p>
+                            Команда IT специалистов #connector предлагает не только
+                            услуги, но и поставку серверного, сетевого и другого IT
+                            оборудования для организации
+                            <br />
+                            <br />
+                            Для этого мы создали специальный сайт www.zetrix.uz на котором
+                            предлагаем широкий ассортимент современной техники от ведущих
+                            производителей.
+                        </p>
+                        <div class="btn-wrapper">
+                            <a href="#" class="btn-first">Больше о данной услуге</a>
+                            <a href="#" class="btn-second">
+                                Каталог IT оборудования
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                    alt="image" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner section end -->
+
+    <!-- task section start -->
+    <section>
+        <div class="additional-section-wrapper">
+            <div class="container">
+                <div class="industry">
+                    <div class="left-industry-wrapper">
+                        <h1>Решение IT задач в каждой отрасли:</h1>
+                        <p>
+                            Мы оказываем услуги всем организациям и во всех отраслях, где
+                            используется IT. От малых предприятий до международных
+                            компаний. От начинающих компаний до организаций с многолетней
+                            историей. От частного бизнеса до государственных учреждений.
+                        </p>
+                        <a href="#" class="btn btn-industry">
+                            Все отрасли
+                            <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                alt="image" />
+                        </a>
+                    </div>
+                    <div class="right-industry-wrapper">
+                        <ul>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/b-1.svg" alt="image" />
+                                Агробизнес и сельское хозяйство
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-2.svg"
+                                    alt="image" />
+                                Производство и промышленность
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-3.svg"
+                                    alt="image" />
+                                Автомобилестроение
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-4.svg"
+                                    alt="image" />
+                                Банковский и финансовый сектор
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-5.svg"
+                                    alt="image" />
+                                Здравоохранение и фармацевтика
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-6.svg"
+                                    alt="image" />
+                                Энергетика и добыча ископаемых
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-7.svg"
+                                    alt="image" />
+                                Медиа и шоубизнес
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-8.svg"
+                                    alt="image" />
+                                Телекоммуникации
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-9.svg"
+                                    alt="image" />
+                                Торговля и ритейл
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-10.svg"
+                                    alt="image" />
+                                Образование и социальный сектор
+                            </li>
+                            <li>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-11.svg"
+                                    alt="image" />
+                                Спорт
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- task section end -->
+
+    <!-- solution section start -->
+    <section>
+        <div class="solution-wrapper">
+            <div class="container">
+                <div class="solution-content">
+                    <h2>Типовые IT решения</h2>
+                    <p>
+                        Эффективные и проверенные IT-решения, внедряемые нами в
+                        организациях для оптимизации рабочих процессов и повышения
+                        операционной эффективности
+                    </p>
+                    <a href="#" class="btn btn-solution">
+                        Еще больше IT решении
+                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg" alt="image" />
+                    </a>
+                </div>
+            </div>
+            <!-- <img src="<?= get_template_directory_uri() ?> /assets/images/home/years.png" class="year-counter" alt="image" /> -->
+        </div>
+    </section>
+    <!-- solution section end -->
+
+    <!-- card section start -->
+    <section>
+        <div class="container">
+            <div class="card-section-wrapper">
+                <div class="row m-0">
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-1.png"
+                                    alt="image" />
+                            </div>
+                            <div class="card-content">
+                                <div class="card-top-wrapper">
+                                    <h5>Как организовать работу с 1C на предприятии</h5>
+                                    <p>
+                                        Cloud computing revolutionizes IT by offering scalable
+                                        resources over the internet. Businesses can reduce
+                                        costs, enhance flexibility, and improve collaboration.
+                                        Popular services include AWS, Google…
+                                    </p>
+                                </div>
+                                <div class="card-bottom-wrapper">
+                                    <a href="#">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-2.png"
+                                    alt="image" />
+                            </div>
+                            <div class="card-content">
+                                <div class="card-top-wrapper">
+                                    <h5>Регулярное бэĸапирование данных и процессов</h5>
+                                    <p>
+                                        Cloud computing revolutionizes IT by offering scalable
+                                        resources over the internet. Businesses can reduce
+                                        costs, enhance flexibility, and improve collaboration.
+                                        Popular services include AWS, Google…
+                                    </p>
+                                </div>
+                                <div class="card-bottom-wrapper">
+                                    <a href="#">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-3.png"
+                                    alt="image" />
+                            </div>
+                            <div class="card-content">
+                                <div class="card-top-wrapper">
+                                    <h5>Связь филиалов предприятия через VPN</h5>
+                                    <p>
+                                        Cloud computing revolutionizes IT by offering scalable
+                                        resources over the internet. Businesses can reduce
+                                        costs, enhance flexibility, and improve collaboration.
+                                        Popular services include AWS, Google…
+                                    </p>
+                                </div>
+                                <div class="card-bottom-wrapper">
+                                    <a href="#">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-4.png"
+                                    alt="image" />
+                            </div>
+                            <div class="card-content">
+                                <div class="card-top-wrapper">
+                                    <h5>Мониторинг IT инфраструĸтуры 24/7</h5>
+                                    <p>
+                                        Cloud computing revolutionizes IT by offering scalable
+                                        resources over the internet. Businesses can reduce
+                                        costs, enhance flexibility, and improve collaboration.
+                                        Popular services include AWS, Google…
+                                    </p>
+                                </div>
+                                <div class="card-bottom-wrapper">
+                                    <a href="#">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- card section end -->
+
+    <!-- tariffs section start -->
+    <section>
+        <div class="container">
+            <div class="tariffs-wrapper">
+                <div class="tariffs-header-wrapper">
+                    <a href="#">Тарифы</a>
+                    <h3>Базовые тарифы на IT обслуживание</h3>
+                    <p>
+                        Как правило, стоимость IT обслуживания всегда индивидуальная.
+                        Однако для ориентира мы приводим наши базовые тарифы. Заказчик
+                        всегда может оценить выгоду и спланировать бюджет на IT
+                        обслуживание.
+                    </p>
+                </div>
+                <div class="tariffs-card-wrapper">
+                    <div class="row m-0">
+                        <div class="col-12 col-md-6 col-lg-4 p-2">
+                            <div class="tariffs-item-wrapper">
+                                <h5>Тариф №1</h5>
+                                <h3>от 3 млн.сум / мес</h3>
+                                <ul>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 5 ПК или ноутбуков
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 2 принтеров или МФУ
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Неограниченное количество заправок принтеров
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        2-3 плановых выезда в месяц
+                                    </li>
+                                </ul>
+                                <a href="#">
+                                    Получить консультацию
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 p-2">
+                            <div class="tariffs-item-wrapper">
+                                <h5>Тариф №2</h5>
+                                <h3>от 5 млн.сум / мес</h3>
+                                <ul>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 12 ПК или ноутбуков
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 4 принтеров или МФУ
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Неограниченное количество заправок принтеров
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        3-5 плановых выезда в месяц
+                                    </li>
+                                </ul>
+                                <a href="#">
+                                    Получить консультацию
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 p-2">
+                            <div class="tariffs-item-wrapper">
+                                <h5>Тариф №3</h5>
+                                <h3>от 7 млн.сум / мес</h3>
+                                <ul>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 20 ПК или ноутбуков
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 6 принтеров или МФУ
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Неограниченное количество заправок принтеров
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Индивидуальный график выездов
+                                    </li>
+                                </ul>
+                                <a href="#">
+                                    Получить консультацию
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 p-2">
+                            <div class="tariffs-item-wrapper">
+                                <h5>Тариф №4</h5>
+                                <h3>от 7 млн.сум / мес</h3>
+                                <ul>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 12 ПК или ноутбуков
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 2 принтеров или МФУ
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Неограниченное количество заправок принтеров
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        1 сервер
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        2-3 плановых выезда в месяц
+                                    </li>
+                                </ul>
+                                <a href="#">
+                                    Получить консультацию
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 p-2">
+                            <div class="tariffs-item-wrapper">
+                                <h5>Тариф №5</h5>
+                                <h3>от 9 млн.сум / мес</h3>
+                                <ul>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 20 ПК или ноутбуков
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 4 принтеров или МФУ
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Неограниченное количество заправок принтеров
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 3 серверов
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        3-5 плановых выезда в месяц
+                                    </li>
+                                </ul>
+                                <a href="#">
+                                    Получить консультацию
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 p-2">
+                            <div class="tariffs-item-wrapper">
+                                <h5>Тариф №6</h5>
+                                <h3>от 12 млн.сум / мес</h3>
+                                <ul>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 50 ПК или ноутбуков
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 15 принтеров или МФУ
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Неограниченное количество заправок принтеров
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        До 10 серверов
+                                    </li>
+                                    <li>
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
+                                        Индивидуальный график выездов
+                                    </li>
+                                </ul>
+                                <a href="#">
+                                    Получить консультацию
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tariffs section end -->
+
+    <!-- article section start -->
+    <section>
+        <div class="container">
+            <div class="article-wrapper">
+                <div class="article-header-wrapper">
+                    <a href="/assets/pages/utilities.html">Полезности</a>
+                    <h3>Интересные статьи</h3>
+                    <p>Здесь вы найдете много полезной информации</p>
+                </div>
+
+                <div class="article-card-wrapper">
+                    <div class="row m-0">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+                            <div class="item">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-1.png"
+                                    alt="image" />
+                                <div class="item-content">
+                                    <h6>Об аутсорсинге</h6>
+                                    <p>
+                                        Развеем мифы об аутсорсинге. В этой статье узнаете много
+                                        инсайтов об этой сфере
+                                    </p>
+                                    <a href="/assets/pages/utilities-detail.html">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+                            <div class="item">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-2.png"
+                                    alt="image" />
+                                <div class="item-content">
+                                    <h6>Тренды в аутсорсинге</h6>
+                                    <p>
+                                        Обзор последних трендов и технологий, которые изменяют
+                                        аутсорсинг в 2023 году.
+                                    </p>
+                                    <a href="/assets/pages/utilities-detail.html">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+                            <div class="item">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-3.png" alt="image" />
+                                <div class="item-content">
+                                    <h6>Преимущества аутсорсинга</h6>
+                                    <p>
+                                        Почему компании выбирают аутсорсинг? Откройте для себя
+                                        ключевые преимущества данной стратегии. Почему компании
+                                        выбирают аутсорсинг? Откройте для себя ключевые
+                                        преимущества данной стратегии. Почему компании выбирают
+                                        аутсорсинг? Откройте для себя ключевые преимущества
+                                        данной стратегии.
+                                    </p>
+                                    <a href="/assets/pages/utilities-detail.html">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+                            <div class="item">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-4.png" alt="image" />
+                                <div class="item-content">
+                                    <h6>Риски аутсорсинга</h6>
+                                    <p>
+                                        Какие риски связаны с аутсорсингом и как их
+                                        минимизировать? Все, что нужно знать.
+                                    </p>
+                                    <a href="/assets/pages/utilities-detail.html">
+                                        Узнать больше
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- article section ebd -->
+
+    <!-- swiper section start -->
+    <section>
+        <div class="swiper-box">
+            <div class="container">
+                <div class="swiper-container-wrapper">
+                    <div class="swiper-header">
+                        <h3>Фотособытия</h3>
+                        <p>Смотрите хронику наших мероприятии</p>
+                    </div>
+                    <!-- Slider main container -->
+                    <div class="swiper-container">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png" class="swiper-photo" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png" class="swiper-photo" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-3.png" class="swiper-photo" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-4.png" class="swiper-photo" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-5.jpg" class="swiper-photo" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png" class="swiper-photo" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="swiper-social-wrapper">
+                                    <a href="#">
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                    </a>
+                                </div>
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png" class="swiper-photo" alt="image" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-nav">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- swiper section end -->
+
+    <!-- stepper section start -->
+    <section>
+        <div class="container">
+            <div class="stepper-header-wrapper">
+                <a href="#">Сотрудничество</a>
+                <h3>Процесс сотрудничества</h3>
+                <p>Хочешь, чтобы работало хорошо? Мы сделаем!</p>
+            </div>
+        </div>
+        <div class="steps">
+            <div class="container">
+                <div class="stepper-wrapper">
+                    <div class="steps-wrapper">
+                        <div class="step">
+                            <div class="step-circle">1</div>
+                            <h4>Консультация</h4>
+                            <p>Анализ потребностей и определение оптимального решения</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-circle">2</div>
+                            <h4>Предложение</h4>
+                            <p>Формирование технического и финансового предложения</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-circle">3</div>
+                            <h4>Договор</h4>
+                            <p>Согласование условий, подписание договора и предоплата</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-circle">4</div>
+                            <h4>Результат</h4>
+                            <p>Выполнение работ и предоставление результата</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- stepper section end -->
+
+    <!-- footer banner section start -->
+    <section>
+        <div class="container">
+            <div class="footer-banner-wrapper">
+                <div class="banner-content-wrapper">
+                    <h1>Свяжитесь с нами - и позвольте себе лучшее!</h1>
+                    <div class="btn-wrapper">
+                        <a href="#" class="contact-btn"> Контакты </a>
+                        <a href="#" class="telegram-btn">
+                            Написать в телеграм
+                            <img src="<?= get_template_directory_uri() ?> /assets/images/home/telegram.png" alt="image" />
+                        </a>
+                    </div>
+                </div>
+                <img src="<?= get_template_directory_uri() ?> /assets/images/home/footer-banner.png" class="banner-hand" alt="image" />
+            </div>
+        </div>
+    </section>
+    <!-- footer banner section end -->
+
+    <!-- partners section start -->
+    <section>
+        <div class="container">
+            <div class="partner-wrapper">
+                <div class="partner-header-wrapper">
+                    <a href="#">Партнеры</a>
+                    <h3>Благодарим каждого партнера</h3>
+                    <p>которые доверяют нам</p>
+                </div>
+
+                <div class="partner-swiper-wrapper">
+                    <!-- Slider main container -->
+                    <div class="swiper-container-partner">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-1.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-2.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-3.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-4.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-5.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-6.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-7.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-8.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-9.png" alt="image" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-10.png" alt="image" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-nav">
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+
+                <!-- <div class="partner-content-wrapper">
+              <div class="partner-item">
+                <img src="./assets/images/home/p-1.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-2.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-3.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-4.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-5.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-6.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-7.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-8.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-9.png" alt="image" />
+              </div>
+              <div class="partner-item">
+                <img src="./assets/images/home/p-10.png" alt="image" />
+              </div>
+            </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- partners section end -->
+</main>
+<!-- Main emd -->
+
+<?php
+get_footer();
+?>
