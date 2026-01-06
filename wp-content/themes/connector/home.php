@@ -8,13 +8,12 @@ get_header();
 <!-- Main start -->
 <main>
     <section>
-        <div class="home-banner-wrapper"
-            style="background-image: url('<?= get_template_directory_uri() ?> /assets/images/home/banner.png')">
+        <div class="home-banner-wrapper" style="background-image: url('<?= get_field('banner'); ?> )">
             <div class="container">
                 <div class="banner-content">
-                    <h1>IT обслуживание организации в Ташкенте, Узбекистане</h1>
-                    <p>Хочешь, чтобы работало хорошо? Мы сделаем!</p>
-                    <a href="#">Подробнее о нас</a>
+                    <h1><?= the_field('banner_header'); ?></h1>
+                    <p><?= the_field('banner_description'); ?></p>
+                    <a href="#"><?= the_field('banner_btn'); ?></a>
                 </div>
             </div>
         </div>
@@ -1042,7 +1041,8 @@ get_header();
 
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                             <div class="item">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-3.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-3.png"
+                                    alt="image" />
                                 <div class="item-content">
                                     <h6>Преимущества аутсорсинга</h6>
                                     <p>
@@ -1055,7 +1055,8 @@ get_header();
                                     </p>
                                     <a href="/assets/pages/utilities-detail.html">
                                         Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -1063,7 +1064,8 @@ get_header();
 
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                             <div class="item">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-4.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/ar-4.png"
+                                    alt="image" />
                                 <div class="item-content">
                                     <h6>Риски аутсорсинга</h6>
                                     <p>
@@ -1072,7 +1074,8 @@ get_header();
                                     </p>
                                     <a href="/assets/pages/utilities-detail.html">
                                         Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -1100,58 +1103,72 @@ get_header();
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png"
+                                    class="swiper-photo" alt="image" />
                             </div>
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png"
+                                    class="swiper-photo" alt="image" />
                             </div>
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-3.png" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-3.png"
+                                    class="swiper-photo" alt="image" />
                             </div>
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-4.png" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-4.png"
+                                    class="swiper-photo" alt="image" />
                             </div>
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-5.jpg" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-5.jpg"
+                                    class="swiper-photo" alt="image" />
                             </div>
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png"
+                                    class="swiper-photo" alt="image" />
                             </div>
                             <div class="swiper-slide">
                                 <div class="swiper-social-wrapper">
                                     <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png" class="swiper-photo" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png"
+                                    class="swiper-photo" alt="image" />
                             </div>
                         </div>
                     </div>
@@ -1219,11 +1236,13 @@ get_header();
                         <a href="#" class="contact-btn"> Контакты </a>
                         <a href="#" class="telegram-btn">
                             Написать в телеграм
-                            <img src="<?= get_template_directory_uri() ?> /assets/images/home/telegram.png" alt="image" />
+                            <img src="<?= get_template_directory_uri() ?> /assets/images/home/telegram.png"
+                                alt="image" />
                         </a>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?> /assets/images/home/footer-banner.png" class="banner-hand" alt="image" />
+                <img src="<?= get_template_directory_uri() ?> /assets/images/home/footer-banner.png" class="banner-hand"
+                    alt="image" />
             </div>
         </div>
     </section>
@@ -1245,34 +1264,44 @@ get_header();
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-1.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-1.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-2.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-2.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-3.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-3.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-4.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-4.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-5.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-5.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-6.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-6.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-7.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-7.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-8.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-8.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-9.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-9.png"
+                                    alt="image" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-10.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-10.png"
+                                    alt="image" />
                             </div>
                         </div>
                     </div>
