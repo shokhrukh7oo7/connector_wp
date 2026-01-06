@@ -614,7 +614,7 @@ p {
   gap: 16px;
 }
 
-.service-wrapper .service-header-wrapper a {
+.service-wrapper .service-header-wrapper p {
   font-size: clamp(13px, 1vw, 14px);
   border: 1px solid var(--black-color);
   color: var(--black-color);
@@ -625,7 +625,7 @@ p {
   position: relative;
   overflow: hidden;
 }
-.service-wrapper .service-header-wrapper a::before {
+.service-wrapper .service-header-wrapper p::before {
   content: "";
   position: absolute;
   top: 0;
@@ -640,7 +640,7 @@ p {
   );
   transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.service-wrapper .service-header-wrapper a:hover {
+.service-wrapper .service-header-wrapper p:hover {
   color: var(--white-color);
   background-color: var(--light-green);
 
@@ -648,7 +648,7 @@ p {
     rgba(0, 0, 0, 0.12) 0px 6px 12px;
   border-color: var(--light-green);
 }
-.service-wrapper .service-header-wrapper a:hover::before {
+.service-wrapper .service-header-wrapper p:hover::before {
   left: 100%;
 }
 .service-wrapper .service-header-wrapper h3 {

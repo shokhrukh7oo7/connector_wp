@@ -71,138 +71,31 @@ get_header();
         <div class="container">
             <div class="service-wrapper">
                 <div class="service-header-wrapper">
-                    <a href="#">Услуги</a>
+                    <p href="#">
+                        <?= the_field('service_header'); ?>
+                    </p>
                     <h3>
-                        Мы предоставляем <br />
-                        полный цикл IT услуг
+                        <?= nl2br(get_field('service_description')); ?>
                     </h3>
                 </div>
+
                 <div class="service-content-wrapper">
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-1.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-1.svg" alt="image" />
+                    <?php if (have_rows('services')): ?>
+                        <?php while (have_rows('services')):
+                            the_row(); ?>
+                            <div class="item">
+                                <img class="ornament" src="<?= esc_html(get_sub_field('ornament')['url']); ?>"
+                                    alt="<?= esc_attr(get_sub_field('ornament')['alt']); ?>" />
+                                <div class="item-content">
+                                    <div class="icon-wrapper">
+                                        <img src="<?= esc_html(get_sub_field('icon')['url']); ?>"
+                                            alt="<?= esc_attr(get_sub_field('icon')['alt']); ?>" />
+                                    </div>
+                                    <p><?= nl2br(get_sub_field('text')); ?></p>
+                                </div>
                             </div>
-                            <p>
-                                IT <br />
-                                обслуживание
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-2.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-2.svg" alt="image" />
-                            </div>
-                            <p>
-                                Сервисный <br />
-                                центр
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-3.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-3.svg" alt="image" />
-                            </div>
-                            <p>
-                                Поставка <br />
-                                лицензионного ПО
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-4.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-4.svg" alt="image" />
-                            </div>
-                            <p>
-                                Инсталяция и <br />
-                                настройка ПО
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-5.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-5.svg" alt="image" />
-                            </div>
-                            <p>
-                                Проектирование <br />
-                                ИТ систем
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-6.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-6.svg" alt="image" />
-                            </div>
-                            <p>
-                                Решение <br />
-                                нестандартных задач
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-7.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-7.svg" alt="image" />
-                            </div>
-                            <p>
-                                Облачные <br />
-                                услуги
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-8.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-8.svg" alt="image" />
-                            </div>
-                            <p>
-                                Монтаж <br />
-                                IT систем
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img class="ornament" src="<?= get_template_directory_uri() ?>/assets/images/home/s-9.png"
-                            alt="image" />
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/i-9.svg" alt="image" />
-                            </div>
-                            <p>
-                                Поставка IT <br />
-                                товаров
-                            </p>
-                        </div>
-                    </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
