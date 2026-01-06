@@ -2,6 +2,21 @@ const openSearchBtn = document.getElementById("openSearch");
 const searchPanel = document.getElementById("searchPanel");
 const searchOverlay = document.getElementById("searchOverlay");
 
+const burgerBtn = document.querySelector(".burger-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+const mobileClose = document.querySelector(".mobile-close");
+
+// открыть бургер
+burgerBtn?.addEventListener("click", () => {
+  mobileMenu.classList.add("active");
+});
+
+// закрыть бургер
+mobileClose?.addEventListener("click", () => {
+  mobileMenu.classList.remove("active");
+});
+
+// открыть поиск
 if (openSearchBtn && searchPanel && searchOverlay) {
   openSearchBtn.addEventListener("click", () => {
     document.querySelector(".mobile-menu")?.classList.remove("active");
