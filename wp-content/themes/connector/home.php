@@ -245,15 +245,17 @@ get_header();
         <div class="solution-wrapper">
             <div class="container">
                 <div class="solution-content">
-                    <h2>Типовые IT решения</h2>
+                    <h2><?= the_field('type_header'); ?></h2>
                     <p>
-                        Эффективные и проверенные IT-решения, внедряемые нами в
-                        организациях для оптимизации рабочих процессов и повышения
-                        операционной эффективности
+                        <?= nl2br(get_field('type_description')); ?>
                     </p>
                     <a href="#" class="btn btn-solution">
-                        Еще больше IT решении
-                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg" alt="image" />
+                        <?= the_field('type_btn'); ?>
+                        <?php
+                        $type_btn_icon = get_field('type_btn_icon');
+                        ?>
+                        <img src="<?= esc_url($type_btn_icon['url']) ?>"
+                            alt="<?= esc_attr($type_btn_icon['alt']); ?>" />
                     </a>
                 </div>
             </div>
