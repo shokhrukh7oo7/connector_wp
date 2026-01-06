@@ -26,82 +26,38 @@ get_header();
                 <div class="additional-section-content">
                     <div class="additional-top-wrapper">
                         <div class="additional-top-left-wrapper">
-                            <ul>
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    С 2009 года на рынке IT Узбекистана
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Каждый месяц отчет о проделанной работе!
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Плановые и срочные выезды специалистов
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Непрерывный мониторинг IT инфраструктуры
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    IT аудит Вашей организации
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Консультации и рекомендации по IT системам
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Гарантия качества выполняемых работ
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Безлимитная бесплатная заправка/замена картриджей для
-                                    абонентов
-                                </li>
-                            </ul>
+                            <?php if (have_rows('advantages')): ?>
+                                <ul>
+                                    <?php while (have_rows('advantages')):
+                                        the_row(); ?>
+                                        <li>
+                                            <?php
+                                            $icon = get_sub_field('icon');
+                                            ?>
+                                            <img src="<?= esc_html($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>" />
+                                            <?= the_sub_field('text'); ?>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
+
+                        <!-- <?php
+                        $start_year = get_field('company_start_year');
+                        ?> -->
                         <div class="additional-top-right-wrapper">
-                            <!-- <h2>17 лет</h2>
-                  <p>На рынке</p> -->
                             <h2>
+                                <!-- <span class="counter" data-start-year="<?= esc_attr($start_year); ?>">0</span> -->
                                 <span class="counter" data-start-year="2008">0</span>
-                                <span class="counter-suffix">лет</span>
+                                <span class="counter-suffix"><?= the_field('year'); ?></span>
                             </h2>
-                            <p>На рынке</p>
+                            <p><?= the_field('market'); ?></p>
                         </div>
                     </div>
 
                     <div class="additional-bottom-wrapper">
                         <p>
-                            Мы, это прежде всего команда людей любящих свою работу и
-                            состоящая из профессионалов своего дела. Профессионал это не
-                            «смесь Супермена с Эйнштейном», а человек который зарабатывает
-                            и живет за счет работы в своем направлении. <br />
-                            Мы не самые «крутые», но кое что можем предложить. За плечами
-                            у нас многолетний опыт с 2009 года работы по строительству и
-                            обслуживанию систем в сфере IT в Узбекистане. Есть понимание
-                            того, как должны быть организованы и выполнены работы. Сотни
-                            реализованных проектов, десятки абонентов и несчетное
-                            количество разовых заказов. На этом сайте мы постарались
-                            рассказать о том как мы работаем и какие выгоды получают наши
-                            клиенты.
+                            <?= nl2br(get_field('description')); ?>
                         </p>
                     </div>
                 </div>
