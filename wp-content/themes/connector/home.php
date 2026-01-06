@@ -71,7 +71,7 @@ get_header();
         <div class="container">
             <div class="service-wrapper">
                 <div class="service-header-wrapper">
-                    <p href="#">
+                    <p>
                         <?= the_field('service_header'); ?>
                     </p>
                     <h3>
@@ -107,229 +107,56 @@ get_header();
         <div class="container">
             <div class="directions-wrapper">
                 <div class="directions-header-wrapper">
-                    <a href="#">Направления</a>
-                    <h3>Специальные направления деятельности</h3>
+                    <h1><?= the_field('direction_header'); ?></h1>
+                    <h3><?= the_field('direction_description'); ?></h3>
                     <p>
-                        В этом разделе мы решили показать еще больше услуг, которые
-                        можем предложить для Вашей организации:
+                        <?= nl2br(get_field('direction_description_2')); ?>
                     </p>
                 </div>
 
                 <div class="directions-content-wrapper">
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-1.svg?>"
-                                    alt="image" />
-                            </div>
-                            <h6>Видеонаблюдение</h6>
-                            <p>
-                                Следите за происходящим онлайн 24/7 - контроль, безопасность
-                                и спокойствие
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
+                    <?php
+                    $directions = new WP_Query(array(
+                        'post_type' => 'direction',
+                        'posts_per_page' => -1,
+                    ));
 
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-2.svg" alt="image" />
+                    if ($directions->have_posts()):
+                        while ($directions->have_posts()):
+                            $directions->the_post();
+                            $icon = get_field('icon'); // ACF поле для иконки направления
+                            $btn_text = get_field('btn_text'); // ACF поле для текста кнопки
+                            $btn_icon = get_field('btn_icon'); // ACF поле для иконки кнопки
+                            // $description = get_field('description'); // ACF поле для описания
+                            $permalink = get_permalink(); // Ссылка на пост
+                            ?>
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="icon-wrapper">
+                                        <?php if ($icon): ?>
+                                            <img src="<?= esc_url($icon['url']) ?>" alt="<?= esc_attr(get_the_title()) ?>" />
+                                        <?php endif; ?>
+                                    </div>
+                                    <h6>
+                                        <?= get_the_title() ?>
+                                    </h6>
+                                    <!-- <?= esc_html($description) ?> -->
+                                    <?= the_content() ?>
+                                </div>
+                                <div class="btn-wrapper">
+                                    <a href="<?= esc_url($permalink) ?>"><?= esc_html($btn_text) ?> </a>
+                                    <?php if ($btn_icon): ?>
+                                        <img src="<?= esc_url($btn_icon['url']) ?>" alt="icon" />
+                                    <?php else: ?>
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="icon" />
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                            <h6>Контроль доступа (СКУД)</h6>
-                            <p>
-                                Управление входом и выходом сотрудников с гибкой настройкой
-                                прав доступа
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-3.svg" alt="image" />
-                            </div>
-                            <h6>IT-безопасность</h6>
-                            <p>Комплексная защита от киберугроз и утечек данных.</p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-4.svg" alt="image" />
-                            </div>
-                            <h6>Серверы</h6>
-                            <p>
-                                Надёжные серверные решения для стабильной работы Вашей
-                                организации.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-                    <!--  -->
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-5.svg" alt="image" />
-                            </div>
-                            <h6>Лоĸальные сети ЛВС/СКС/ ВОЛС</h6>
-                            <p>
-                                Строим быстрые и надёжные сети - от офиса до крупного
-                                предприятия.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-6.svg" alt="image" />
-                            </div>
-                            <h6>IP-Телефония</h6>
-                            <p>
-                                Экономия и удобство: звонки через интернет с полной
-                                интеграцией.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-7.svg" alt="image" />
-                            </div>
-                            <h6>Корпоративный Wi-Fi</h6>
-                            <p>
-                                Стабильный интернет без сбоев - для сотрудников, гостей и
-                                клиентов.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-8.svg" alt="image" />
-                            </div>
-                            <h6>Звукоусиление</h6>
-                            <p>
-                                Системы озвучивания и оповещения для залов, комнат и
-                                открытых пространств.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-                    <!--  -->
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-9.svg" alt="image" />
-                            </div>
-                            <h6>ОПС (пожарная сигнализация)</h6>
-                            <p>
-                                Системы пожарной безопасности для защиты жизни и имущества.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-10.svg"
-                                    alt="image" />
-                            </div>
-                            <h6>Решения для видео презентаций</h6>
-                            <p>
-                                С решениями от нашей команды, у Вас будут яркие презентации
-                                и демонстрации.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-11.svg"
-                                    alt="image" />
-                            </div>
-                            <h6>Видео ĸонференц-связь (ВКС)</h6>
-                            <p>
-                                Удалённые встречи так, будто все участники в одном зале.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-content">
-                            <div class="icon-wrapper">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/t-12.svg"
-                                    alt="image" />
-                            </div>
-                            <h6>Аудио ĸонференции</h6>
-                            <p>
-                                Чистый звук и удобные системы для групповых переговоров и
-                                совещаний.
-                            </p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="#">Узнать больше</a>
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                alt="image" />
-                        </div>
-                    </div>
+                            <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>
