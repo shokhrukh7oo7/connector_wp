@@ -99,7 +99,7 @@
 						</div>
 
 						<div class="contact-us-btn-wrapper">
-							<button>Связаться снами</button>
+							<button><?= the_field('contact_us_btn', 'options_' . pll_current_language()); ?></button>
 						</div>
 					</div>
 
