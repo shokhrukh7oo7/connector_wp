@@ -207,76 +207,32 @@ get_header();
             <div class="container">
                 <div class="industry">
                     <div class="left-industry-wrapper">
-                        <h1>Решение IT задач в каждой отрасли:</h1>
+                        <h1><?= the_field('industry_header'); ?></h1>
                         <p>
-                            Мы оказываем услуги всем организациям и во всех отраслях, где
-                            используется IT. От малых предприятий до международных
-                            компаний. От начинающих компаний до организаций с многолетней
-                            историей. От частного бизнеса до государственных учреждений.
+                            <?= nl2br(get_field('industry_description')); ?>
                         </p>
                         <a href="#" class="btn btn-industry">
-                            Все отрасли
-                            <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
-                                alt="image" />
+                            <?= the_field('industry_btn'); ?>
+                            <?php
+                            $industry_btn_icon = get_field('industry_btn_icon');
+                            ?>
+                            <img src="<?= esc_url($industry_btn_icon['url']) ?>"
+                                alt="<?= esc_attr($industry_btn_icon['alt']); ?>" />
                         </a>
                     </div>
                     <div class="right-industry-wrapper">
-                        <ul>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/b-1.svg" alt="image" />
-                                Агробизнес и сельское хозяйство
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-2.svg"
-                                    alt="image" />
-                                Производство и промышленность
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-3.svg"
-                                    alt="image" />
-                                Автомобилестроение
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-4.svg"
-                                    alt="image" />
-                                Банковский и финансовый сектор
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-5.svg"
-                                    alt="image" />
-                                Здравоохранение и фармацевтика
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-6.svg"
-                                    alt="image" />
-                                Энергетика и добыча ископаемых
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-7.svg"
-                                    alt="image" />
-                                Медиа и шоубизнес
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-8.svg"
-                                    alt="image" />
-                                Телекоммуникации
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-9.svg"
-                                    alt="image" />
-                                Торговля и ритейл
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-10.svg"
-                                    alt="image" />
-                                Образование и социальный сектор
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/b-11.svg"
-                                    alt="image" />
-                                Спорт
-                            </li>
-                        </ul>
+                        <?php if (have_rows('industry')): ?>
+                            <ul>
+                                <?php while (have_rows('industry')):
+                                    the_row(); ?>
+                                    <li>
+                                        <img src="<?= esc_url(get_sub_field('icon')['url']) ?>"
+                                            alt="<?= esc_attr(get_sub_field('icon')['alt']); ?>" />
+                                        <?= get_sub_field('text'); ?>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
