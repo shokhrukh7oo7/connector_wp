@@ -165,36 +165,33 @@ get_header();
 
     <!-- banner section start -->
     <section>
-        <div class="banner-equipment"
-            style="background-image: url('<?= get_template_directory_uri() ?> /assets/images/home/banner-2.png')">
+        <div class="banner-equipment" style="background-image: url('<?= the_field('banner_equipment'); ?>')">
             <div class="container">
                 <div class="banner-equipment-content-wrapper">
                     <div class="banner-equipment-header">
-                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/zetrix.png" alt="image" />
+                        <?php
+                        $partner_logo = get_field('partner_logo');
+                        ?>
+                        <img src="<?= esc_url($partner_logo['url']) ?>" alt="<?= esc_attr($partner_logo['alt']); ?>" />
                         <p>
-                            OOO ≪ZETRIX≫ является торговой фирмой входящей <br />
-                            в состав группы компаний #connector.
+                            <?= nl2br(get_field('partner_logo_header')) ?>
                         </p>
                     </div>
 
                     <div class="banner-equipment-body">
-                        <h1>Поставка IT товаров</h1>
+                        <h1><?= the_field('banner_equipment_header'); ?></h1>
                         <p>
-                            Команда IT специалистов #connector предлагает не только
-                            услуги, но и поставку серверного, сетевого и другого IT
-                            оборудования для организации
-                            <br />
-                            <br />
-                            Для этого мы создали специальный сайт www.zetrix.uz на котором
-                            предлагаем широкий ассортимент современной техники от ведущих
-                            производителей.
+                            <?= nl2br(get_field('banner_equipment_description')); ?>
                         </p>
                         <div class="btn-wrapper">
-                            <a href="#" class="btn-first">Больше о данной услуге</a>
+                            <a href="#" class="btn-first"><?= the_field('left_btn'); ?></a>
                             <a href="#" class="btn-second">
-                                Каталог IT оборудования
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
-                                    alt="image" />
+                                <?= the_field('right_btn'); ?>
+                                <?php
+                                $right_btn_icon = get_field('right_btn_icon');
+                                ?>
+                                <img src="<?= esc_url($right_btn_icon['url']) ?>"
+                                    alt="<?= esc_attr($right_btn_icon['alt']); ?>" />
                             </a>
                         </div>
                     </div>
