@@ -278,6 +278,9 @@ p {
   justify-content: space-between;
   gap: clamp(10px, 2vw, 30px);
 }
+.header .mobile-menu .navbar-menu-wrapper ul {
+  margin-left: 0;
+}
 .burger-btn {
   display: none;
   flex-direction: column;

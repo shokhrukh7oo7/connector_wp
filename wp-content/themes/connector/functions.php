@@ -50,7 +50,7 @@ function connector_setup()
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'connector'),
+			'header_menu' => esc_html__('Меню в шапке', 'connector'),
 		)
 	);
 
@@ -210,4 +210,45 @@ function fix_svg_mime_type($data, $file, $filename, $mimes)
 	return $data;
 }
 add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 4);
+// ------------------------------------------------------------------------
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' => 'Настройки шапки',
+		'menu_title' => 'Настройки шапки',
+		'menu_slug' => 'header-settings',
+		'capability' => 'edit_posts',
+		'redirect' => false,
+		'post_id' => 'options_' . pll_current_language()
+	));
+}
+// ------------------------------------------------------------------------
+class Header_Menu_Walker extends Walker_Nav_Menu {
+
+  // li
+  function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+
+    $classes = empty($item->classes) ? [] : (array) $item->classes;
+    $has_children = in_array('menu-item-has-children', $classes);
+
+    $class_names = [];
+    if ($has_children) {
+      $class_names[] = 'has-dropdown';
+    }
+
+    $output .= '<li class="' . implode(' ', $class_names) . '">';
+
+    // ссылка
+    if ($has_children) {
+      $output .= '<a href="#!" class="dropdown-toggle">' . esc_html($item->title) . '</a>';
+    } else {
+      $output .= '<a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+    }
+  }
+
+  // ul
+  function start_lvl(&$output, $depth = 0, $args = null) {
+    $output .= '<ul class="submenu">';
+  }
+}
+
 // ------------------------------------------------------------------------

@@ -29,61 +29,27 @@
 		<div class="container">
 			<nav class="navbar-wrapper">
 				<div class="logo-wrapper">
-					<a href="./index.html">
-						<img src="<?= get_template_directory_uri() ?> /assets/images/home/logo.png" alt="image" />
-					</a>
+					<?php
+					$logo = get_field('logo', 'options_' . pll_current_language());
+					?>
+					<?php if ($logo): ?>
+						<a href="<?= esc_url(home_url('/')); ?>">
+							<img src="<?= esc_url($logo['url']); ?>" alt="<?= esc_attr($logo['alt']); ?>">
+						</a>
+					<?php endif; ?>
 				</div>
 
 				<div class="mobile-menu">
 					<div class="navbar-menu-wrapper">
-						<ul>
-							<li><a href="./index.html" class="active">Главная</a></li>
-							<!-- <li><a href="#">Услуги</a></li> -->
-							<li class="has-dropdown">
-								<a href="#!" class="dropdown-toggle">Услуги</a>
-								<ul class="submenu">
-									<li>
-										<a href="/assets/pages/it-service.html">IT обслуживание</a>
-									</li>
-									<li>
-										<a href="/assets/pages/installation-and-setting.html">Инсталляция и настройка
-											ПО</a>
-									</li>
-									<li>
-										<a href="/assets/pages/it-system-design.html">Проектирование IT систем</a>
-									</li>
-									<li>
-										<a href="/assets/pages/supply-of-it-goods.html">Поставка IT товаров</a>
-									</li>
-									<li>
-										<a href="/assets/pages/supply-lisence.html">Поставка лицензионного ПО</a>
-									</li>
-									<li><a href="#">Монтаж ИТ систем</a></li>
-									<li><a href="#">Облачные услуги</a></li>
-									<li><a href="#">Решение нестандартных задач</a></li>
-									<li>
-										<a href="/assets/pages/service-center.html">Сервисный центр</a>
-									</li>
-								</ul>
-							</li>
-							<li class="has-dropdown">
-								<a href="#!" class="dropdown-toggle">Решения</a>
-								<ul class="submenu">
-									<li>
-										<a href="/assets/pages/solving-it-problems.html">Решение IT задач в каждой
-											отрасли</a>
-									</li>
-									<li>
-										<a href="/assets/pages/typical-it-solution.html">Типовые IT решения</a>
-									</li>
-								</ul>
-							</li>
-							<!-- <li><a href="#">Решения</a></li> -->
-							<li><a href="/assets/pages/utilities.html">Полезности</a></li>
-							<li><a href="/assets/pages/clients.html">Клиенты</a></li>
-							<li><a href="#">Фотособытия</a></li>
-							<li><a href="/assets/pages/contact.html">Контакты</a></li>
-						</ul>
+						<?php
+						wp_nav_menu([
+							'theme_location' => 'header_menu',
+							'container' => false,
+							'menu_class' => '',
+							'items_wrap' => '<ul>%3$s</ul>',
+							'walker' => new Header_Menu_Walker(),
+						]);
+						?>
 					</div>
 
 					<div class="navbar-right-wrapper">
@@ -97,6 +63,44 @@
 						</div>
 
 						<div class="language-wrapper">
+							<div class="dropdown">
+								<?php
+								$languages = pll_the_languages([
+									'hide_if_empty' => 0,
+									'raw' => 1
+								]);
+
+								if ($languages):
+									$current_lang = pll_current_language();
+									$current = $languages[$current_lang];
+
+									$current_icon = get_template_directory_uri() . "/assets/images/home/{$current_lang}.png";
+									?>
+									<button class="btn btn-secondary dropdown-toggle" type="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<img src="<?= esc_url($current_icon); ?>" alt="">
+										<?= esc_html($current['name']); ?>
+									</button>
+
+									<ul class="dropdown-menu">
+										<?php foreach ($languages as $slug => $lang): ?>
+											<?php if ($slug !== $current_lang):
+												$icon = get_template_directory_uri() . "/assets/images/home/{$slug}.png";
+												?>
+												<li>
+													<a class="dropdown-item" href="<?= esc_url($lang['url']); ?>">
+														<img src="<?= esc_url($icon); ?>" alt="">
+														<?= esc_html($lang['name']); ?>
+													</a>
+												</li>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+							</div>
+						</div>
+
+						<!-- <div class="language-wrapper">
 							<div class="dropdown">
 								<button class="btn btn-secondary dropdown-toggle" type="button"
 									data-bs-toggle="dropdown" aria-expanded="false">
@@ -114,7 +118,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="contact-us-btn-wrapper">
 							<button>Связаться снами</button>

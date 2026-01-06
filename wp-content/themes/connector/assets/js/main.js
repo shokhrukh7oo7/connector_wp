@@ -186,7 +186,7 @@ document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
     document.querySelectorAll(".has-dropdown").forEach((item) => {
       if (item !== parent) item.classList.remove("open");
     });
-
+    if (!parent) return;
     parent.classList.toggle("open");
   });
 });
@@ -200,7 +200,6 @@ document.addEventListener("click", (e) => {
   }
 });
 // ================================================
-
 
 Fancybox.bind('[data-fancybox="gallery"]', {
   Carousel: {
