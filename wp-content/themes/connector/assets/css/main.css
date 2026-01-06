@@ -322,7 +322,8 @@ p {
 
 .search-panel {
   position: fixed;
-  top: 76px;
+  /* top: 76px; */
+  top: 100px;
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
   width: min(600px, 90%);
@@ -387,7 +388,7 @@ p {
   background: var(--light-green);
   border: none;
   border-radius: 42px;
-  padding: 10px 16px;
+  padding: 5px 16px;
   color: #fff;
   cursor: pointer;
   position: relative;

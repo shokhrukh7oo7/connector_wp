@@ -54,12 +54,10 @@
 
 					<div class="navbar-right-wrapper">
 						<div class="search-wrapper">
-							<form class="search-box" id="openSearch">
-								<button type="button">
-									<img src="<?= get_template_directory_uri() ?>/assets/images/home/search.svg"
-										alt="image" />
-								</button>
-							</form>
+							<button type="button" id="openSearch" class="search-open-btn" aria-label="Открыть поиск">
+								<img src="<?= get_template_directory_uri() ?>/assets/images/home/search.svg"
+									alt="Поиск" />
+							</button>
 						</div>
 
 						<div class="language-wrapper">
@@ -100,26 +98,6 @@
 							</div>
 						</div>
 
-						<!-- <div class="language-wrapper">
-							<div class="dropdown">
-								<button class="btn btn-secondary dropdown-toggle" type="button"
-									data-bs-toggle="dropdown" aria-expanded="false">
-									<img src="<?= get_template_directory_uri() ?>/assets/images/home/ru.png"
-										alt="image" />
-									Рус
-								</button>
-								<ul class="dropdown-menu">
-									<li>
-										<a class="dropdown-item" href="#">
-											<img src="<?= get_template_directory_uri() ?>/assets/images/home/en.svg"
-												alt="" />
-											En
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div> -->
-
 						<div class="contact-us-btn-wrapper">
 							<button>Связаться снами</button>
 						</div>
@@ -147,8 +125,9 @@
 	<div class="search-panel" id="searchPanel">
 		<h3>Поиск по сайту</h3>
 
-		<form class="search-form">
-			<input type="text" placeholder="Например, IT обслуживание" autofocus />
+		<form role="search" method="get" class="search-form" action="<?= esc_url(home_url('/')); ?>">
+			<input type="search" name="s" placeholder="<?php esc_attr_e('Поиск...', 'textdomain'); ?>"
+				value="<?= get_search_query(); ?>" autofocus />
 			<button type="submit">Начать поиск</button>
 		</form>
 	</div>
