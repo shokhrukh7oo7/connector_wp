@@ -123,12 +123,13 @@
 
 	<!-- Search panel -->
 	<div class="search-panel" id="searchPanel">
-		<h3>Поиск по сайту</h3>
+		<h3><?= the_field('search_header', 'options_' . pll_current_language()); ?></h3>
 
 		<form role="search" method="get" class="search-form" action="<?= esc_url(home_url('/')); ?>">
-			<input type="search" name="s" placeholder="<?php esc_attr_e('Поиск...', 'textdomain'); ?>"
-				value="<?= get_search_query(); ?>" autofocus />
-			<button type="submit">Начать поиск</button>
+			<input type="search" name="s"
+				placeholder="<?= esc_attr(get_field('search_placeholder', 'options_' . pll_current_language())); ?>"
+				value="<?= esc_attr(get_search_query()); ?>" autofocus />
+			<button type="submit"><?= the_field('search_btn', 'options_' . pll_current_language()); ?></button>
 		</form>
 	</div>
 	<!-- SEARCH END -->
