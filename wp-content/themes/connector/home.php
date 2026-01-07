@@ -514,38 +514,34 @@ get_header();
     <section>
         <div class="container">
             <div class="stepper-header-wrapper">
-                <a href="#">Сотрудничество</a>
-                <h3>Процесс сотрудничества</h3>
-                <p>Хочешь, чтобы работало хорошо? Мы сделаем!</p>
+                <h1><?= the_field('partner_header'); ?></h1>
+                <h3><?= the_field('partner_description'); ?></h3>
+                <p><?= the_field('partner_description_2'); ?></p>
             </div>
         </div>
+
         <div class="steps">
             <div class="container">
                 <div class="stepper-wrapper">
                     <div class="steps-wrapper">
-                        <div class="step">
-                            <div class="step-circle">1</div>
-                            <h4>Консультация</h4>
-                            <p>Анализ потребностей и определение оптимального решения</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-circle">2</div>
-                            <h4>Предложение</h4>
-                            <p>Формирование технического и финансового предложения</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-circle">3</div>
-                            <h4>Договор</h4>
-                            <p>Согласование условий, подписание договора и предоплата</p>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-circle">4</div>
-                            <h4>Результат</h4>
-                            <p>Выполнение работ и предоставление результата</p>
-                        </div>
+                        <?php if (have_rows('steps_list')): ?>
+                            <?php $step_number = 1; ?>
+                            <?php while (have_rows('steps_list')):
+                                the_row(); ?>
+                                <div class="step">
+                                    <div class="step-circle">
+                                        <?= $step_number; ?>
+                                    </div>
+                                    <h4>
+                                        <?= esc_html(get_sub_field('step_title')); ?>
+                                    </h4>
+                                    <p>
+                                        <?= esc_html(get_sub_field('step_description')); ?>
+                                    </p>
+                                </div>
+                                <?php $step_number++; ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -1694,7 +1694,7 @@ p {
   gap: 16px;
 }
 
-.stepper-header-wrapper a {
+.stepper-header-wrapper h1 {
   font-size: clamp(13px, 1vw, 14px);
   border: 1px solid var(--black-color);
   color: var(--black-color);
@@ -1706,7 +1706,7 @@ p {
   overflow: hidden;
 }
 
-.stepper-header-wrapper a::before {
+.stepper-header-wrapper h1::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1722,14 +1722,14 @@ p {
   transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.stepper-header-wrapper a:hover {
+.stepper-header-wrapper h1:hover {
   background-color: var(--light-green);
   box-shadow: rgba(71, 192, 162, 0.45) 0px 10px 30px,
     rgba(0, 0, 0, 0.12) 0px 6px 12px;
   color: var(--white-color);
   border-color: transparent;
 }
-.stepper-header-wrapper a:hover::before {
+.stepper-header-wrapper h1:hover::before {
   left: 100%;
 }
 .stepper-header-wrapper h3 {
