@@ -1986,7 +1986,7 @@ p {
   align-items: start;
   gap: 16px;
 }
-.partner-wrapper .partner-header-wrapper a {
+.partner-wrapper .partner-header-wrapper h1 {
   font-size: clamp(13px, 1vw, 14px);
   border: 1px solid var(--black-color);
   color: var(--black-color);
@@ -1997,7 +1997,7 @@ p {
   position: relative;
   overflow: hidden;
 }
-.partner-wrapper .partner-header-wrapper a::before {
+.partner-wrapper .partner-header-wrapper h1::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2012,7 +2012,7 @@ p {
   );
   transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.partner-wrapper .partner-header-wrapper a:hover {
+.partner-wrapper .partner-header-wrapper h1:hover {
   color: var(--white-color);
   background-color: var(--light-green);
 
@@ -2020,7 +2020,7 @@ p {
     rgba(0, 0, 0, 0.12) 0px 6px 12px;
   border-color: var(--light-green);
 }
-.partner-wrapper .partner-header-wrapper a:hover::before {
+.partner-wrapper .partner-header-wrapper h1:hover::before {
   left: 100%;
 }
 .partner-wrapper .partner-header-wrapper h3 {

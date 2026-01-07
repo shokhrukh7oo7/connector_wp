@@ -583,55 +583,24 @@ get_header();
         <div class="container">
             <div class="partner-wrapper">
                 <div class="partner-header-wrapper">
-                    <a href="#">Партнеры</a>
-                    <h3>Благодарим каждого партнера</h3>
-                    <p>которые доверяют нам</p>
+                    <h1><?= the_field('partner_swiper_header'); ?></h1>
+                    <h3><?= the_field('partner_swiper_description'); ?></h3>
+                    <p><?= the_field('partner_swiper_description_2'); ?></p>
                 </div>
 
                 <div class="partner-swiper-wrapper">
                     <!-- Slider main container -->
                     <div class="swiper-container-partner">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-1.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-2.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-3.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-4.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-5.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-6.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-7.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-8.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-9.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-10.png"
-                                    alt="image" />
-                            </div>
+                            <?php if (have_rows('partner_swiper')): ?>
+                                <?php while (have_rows('partner_swiper')):
+                                    the_row(); ?>
+                                    <div class="swiper-slide">
+                                        <img src="<?= esc_url(get_sub_field('slider_image')['url']) ?>"
+                                            alt="<?= esc_attr(get_sub_field('slider_image')['alt']); ?>" />
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="swiper-nav">
