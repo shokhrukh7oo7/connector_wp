@@ -431,7 +431,7 @@ get_header();
                                                 <?= esc_html(get_the_title()) ?>
                                             </h6>
 
-                                            <?php the_content();?>
+                                            <?php the_content(); ?>
 
                                             <a href="<?= esc_url($permalink) ?>">
                                                 <?= esc_html($btn_text) ?>
@@ -460,85 +460,45 @@ get_header();
             <div class="container">
                 <div class="swiper-container-wrapper">
                     <div class="swiper-header">
-                        <h3>Фотособытия</h3>
-                        <p>Смотрите хронику наших мероприятии</p>
+                        <h3><?= the_field('photo_header'); ?></h3>
+                        <p><?= the_field('photo_description'); ?></p>
                     </div>
                     <!-- Slider main container -->
+
                     <div class="swiper-container">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png"
-                                    class="swiper-photo" alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png"
-                                    class="swiper-photo" alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-3.png"
-                                    class="swiper-photo" alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-4.png"
-                                    class="swiper-photo" alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-5.jpg"
-                                    class="swiper-photo" alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-1.png"
-                                    class="swiper-photo" alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-social-wrapper">
-                                    <a href="#">
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/instagram.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/swiper-2.png"
-                                    class="swiper-photo" alt="image" />
-                            </div>
+
+                            <?php if (have_rows('photo_events_slider')): ?>
+                                <?php while (have_rows('photo_events_slider')):
+                                    the_row(); ?>
+
+                                    <?php
+                                    $photo = get_sub_field('photo');
+                                    $social_link = get_sub_field('social_link');
+                                    $social_icon = get_sub_field('social_icon');
+                                    ?>
+
+                                    <div class="swiper-slide">
+                                        <div class="swiper-social-wrapper">
+                                            <?php if ($social_link && $social_icon): ?>
+                                                <a href="<?= esc_url($social_link); ?>" target="_blank" rel="nofollow noopener">
+                                                    <img src="<?= esc_url($social_icon['url']); ?>"
+                                                        alt="<?= esc_attr($social_icon['alt']); ?>">
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if ($photo): ?>
+                                            <img src="<?= esc_url(is_array($photo) ? $photo['url'] : $photo); ?>"
+                                                alt="<?= esc_attr(is_array($photo) ? $photo['alt'] : 'Photo'); ?>"
+                                                class="swiper-photo">
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+
                         </div>
                     </div>
+
                     <!-- If we need navigation buttons -->
                     <div class="swiper-nav">
                         <div class="swiper-button-prev"></div>
@@ -628,7 +588,6 @@ get_header();
                 <div class="partner-swiper-wrapper">
                     <!-- Slider main container -->
                     <div class="swiper-container-partner">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img src="<?= get_template_directory_uri() ?> /assets/images/home/p-1.png"
@@ -678,39 +637,6 @@ get_header();
                         <div class="swiper-button-next"></div>
                     </div>
                 </div>
-
-                <!-- <div class="partner-content-wrapper">
-              <div class="partner-item">
-                <img src="./assets/images/home/p-1.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-2.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-3.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-4.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-5.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-6.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-7.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-8.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-9.png" alt="image" />
-              </div>
-              <div class="partner-item">
-                <img src="./assets/images/home/p-10.png" alt="image" />
-              </div>
-            </div> -->
             </div>
         </div>
     </section>
