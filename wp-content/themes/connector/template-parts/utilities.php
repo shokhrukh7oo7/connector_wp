@@ -17,221 +17,54 @@ get_header();
                 </div>
 
                 <div class="article-card-wrapper">
-                    <div class="row m-0">
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-1.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Об аутсорсинге</h6>
-                                    <p>
-                                        Развеем мифы об аутсорсинге. В этой статье узнаете много
-                                        инсайтов об этой сфере
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="container">
+                        <div class="row m-0">
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-2.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Тренды в аутсорсинге</h6>
-                                    <p>
-                                        Обзор последних трендов и технологий, которые изменяют
-                                        аутсорсинг в 2023 году.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            <?php
+                            $utilities = new WP_Query(array(
+                                'post_type' => 'utility',
+                                'posts_per_page' => -1,      // 👈 ВСЕ
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC',
+                                'offset' => 4,       // 👈 ПРОПУСКАЕМ первые 4
+                            ));
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-3.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Преимущества аутсорсинга</h6>
-                                    <p>
-                                        Почему компании выбирают аутсорсинг? Откройте для себя
-                                        ключевые преимущества данной стратегии. Почему компании
-                                        выбирают аутсорсинг? Откройте для себя ключевые
-                                        преимущества данной стратегии. Почему компании выбирают
-                                        аутсорсинг? Откройте для себя ключевые преимущества
-                                        данной стратегии.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            if ($utilities->have_posts()):
+                                while ($utilities->have_posts()):
+                                    $utilities->the_post();
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-4.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Риски аутсорсинга</h6>
-                                    <p>
-                                        Какие риски связаны с аутсорсингом и как их
-                                        минимизировать? Все, что нужно знать.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-2.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Тренды в аутсорсинге</h6>
-                                    <p>
-                                        Обзор последних трендов и технологий, которые изменяют
-                                        аутсорсинг в 2023 году.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                    $btn_icon = get_field('btn_icon');
+                                    $btn_text = get_field('btn_text') ?: 'Узнать больше';
+                                    $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                                    ?>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-1.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Об аутсорсинге</h6>
-                                    <p>
-                                        Развеем мифы об аутсорсинге. В этой статье узнаете много
-                                        инсайтов об этой сфере
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+                                        <div class="item">
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-4.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Риски аутсорсинга</h6>
-                                    <p>
-                                        Какие риски связаны с аутсорсингом и как их
-                                        минимизировать? Все, что нужно знать.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                            <?php if ($thumb): ?>
+                                                <img src="<?= esc_url($thumb) ?>" alt="<?= esc_attr(get_the_title()) ?>">
+                                            <?php endif; ?>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-3.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Преимущества аутсорсинга</h6>
-                                    <p>
-                                        Почему компании выбирают аутсорсинг? Откройте для себя
-                                        ключевые преимущества данной стратегии. Почему компании
-                                        выбирают аутсорсинг? Откройте для себя ключевые
-                                        преимущества данной стратегии. Почему компании выбирают
-                                        аутсорсинг? Откройте для себя ключевые преимущества
-                                        данной стратегии.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-4.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Риски аутсорсинга</h6>
-                                    <p>
-                                        Какие риски связаны с аутсорсингом и как их
-                                        минимизировать? Все, что нужно знать.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="item-content">
+                                                <h6><?= esc_html(get_the_title()) ?></h6>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-2.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Тренды в аутсорсинге</h6>
-                                    <p>
-                                        Обзор последних трендов и технологий, которые изменяют
-                                        аутсорсинг в 2023 году.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                                <?= the_content(); ?>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-3.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Преимущества аутсорсинга</h6>
-                                    <p>
-                                        Почему компании выбирают аутсорсинг? Откройте для себя
-                                        ключевые преимущества данной стратегии. Почему компании
-                                        выбирают аутсорсинг? Откройте для себя ключевые
-                                        преимущества данной стратегии. Почему компании выбирают
-                                        аутсорсинг? Откройте для себя ключевые преимущества
-                                        данной стратегии.
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                                <a href="<?= esc_url(get_permalink()) ?>">
+                                                    <?= esc_html($btn_text) ?>
+                                                    <?php if ($btn_icon): ?>
+                                                        <img src="<?= esc_url($btn_icon['url']) ?>" alt="icon">
+                                                    <?php endif; ?>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                            <div class="item">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/ar-1.png" alt="image" />
-                                <div class="item-content">
-                                    <h6>Об аутсорсинге</h6>
-                                    <p>
-                                        Развеем мифы об аутсорсинге. В этой статье узнаете много
-                                        инсайтов об этой сфере
-                                    </p>
-                                    <a href="/assets/pages/utilities-detail.html">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                                    <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -244,27 +77,28 @@ get_header();
 get_footer();
 ?>
 
-<!-- <section class="article-card-wrapper">
+<!-- <div class="article-card-wrapper">
     <div class="container">
         <div class="row m-0">
 
             <?php
             $utilities = new WP_Query(array(
-                'post_type'      => 'article',
+                'post_type' => 'article',
                 'posts_per_page' => -1,      // 👈 ВСЕ
-                'orderby'        => 'menu_order',
-                'order'          => 'ASC',
-                'offset'         => 4,       // 👈 ПРОПУСКАЕМ первые 4
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'offset' => 4,       // 👈 ПРОПУСКАЕМ первые 4
             ));
 
             if ($utilities->have_posts()):
-                while ($utilities->have_posts()): $utilities->the_post();
+                while ($utilities->have_posts()):
+                    $utilities->the_post();
 
                     $short_desc = get_field('short_description');
-                    $btn_icon   = get_field('btn_icon');
-                    $btn_text   = get_field('btn_text') ?: 'Узнать больше';
-                    $thumb      = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-            ?>
+                    $btn_icon = get_field('btn_icon');
+                    $btn_text = get_field('btn_text') ?: 'Узнать больше';
+                    $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                    ?>
 
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                 <div class="item">
@@ -298,4 +132,4 @@ get_footer();
 
         </div>
     </div>
-</section> -->
+</div> -->
