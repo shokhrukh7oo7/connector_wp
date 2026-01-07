@@ -227,6 +227,22 @@ function register_directions_post_type()
 add_action('init', 'register_directions_post_type');
 
 // ------------------------------------------------------------------------
+function register_tariffs_post_type()
+{
+	register_post_type('tariff', array(
+		'labels' => array(
+			'name' => 'Тарифы',
+			'singular_name' => 'Тариф',
+		),
+		'public' => true,
+		'has_archive' => false,
+		'menu_icon' => 'dashicons-list-view',
+		'show_in_rest' => true,
+		'supports' => array('title', 'page-attributes'),
+	));
+}
+add_action('init', 'register_tariffs_post_type');
+// ------------------------------------------------------------------------
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' => 'Настройки шапки',

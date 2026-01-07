@@ -269,110 +269,40 @@ get_header();
         <div class="container">
             <div class="card-section-wrapper">
                 <div class="row m-0">
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-1.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Как организовать работу с 1C на предприятии</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-2.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Регулярное бэĸапирование данных и процессов</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
+                    <?php if (have_rows('cards')): ?>
+                        <?php while (have_rows('cards')):
+                            the_row(); ?>
+                            <div class="col-12 col-lg-6 p-2">
+                                <div class="card-item">
+                                    <div class="card-image">
+                                        <?php
+                                        $card_image = get_sub_field('card_icon');
+                                        ?>
+                                        <img src="<?= esc_url($card_image['url']) ?>"
+                                            alt="<?= esc_attr($card_image['alt']); ?>" />
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-top-wrapper">
+                                            <h5><?= get_sub_field('card_header'); ?></h5>
+                                            <p>
+                                                <?= nl2br(get_sub_field('card_description')); ?>
+                                            </p>
+                                        </div>
+                                        <div class="card-bottom-wrapper">
+                                            <a href="">
+                                                <?= get_sub_field('card_btn'); ?>
+                                                <?php
+                                                $card_link_icon = get_sub_field('card_btn_icon');
+                                                ?>
+                                                <img src="<?= esc_url($card_link_icon['url']) ?>"
+                                                    alt="<?= esc_attr($card_link_icon['alt']); ?>" />
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-3.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Связь филиалов предприятия через VPN</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/home/card-4.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Мониторинг IT инфраструĸтуры 24/7</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -384,16 +314,78 @@ get_header();
         <div class="container">
             <div class="tariffs-wrapper">
                 <div class="tariffs-header-wrapper">
-                    <a href="#">Тарифы</a>
-                    <h3>Базовые тарифы на IT обслуживание</h3>
+                    <h1><?= the_field('tariffs_header'); ?></h1>
+                    <h3><?= the_field('tariffs_description'); ?></h3>
                     <p>
-                        Как правило, стоимость IT обслуживания всегда индивидуальная.
-                        Однако для ориентира мы приводим наши базовые тарифы. Заказчик
-                        всегда может оценить выгоду и спланировать бюджет на IT
-                        обслуживание.
+                        <?= nl2br(get_field('tariffs_description_2')); ?>
                     </p>
                 </div>
                 <div class="tariffs-card-wrapper">
+                    <div class="row m-0">
+                        <?php
+                        $tariffs = new WP_Query(array(
+                            'post_type' => 'tariff',
+                            'posts_per_page' => -1,
+                            'orderby' => 'menu_order',
+                            'order' => 'ASC',
+                        ));
+
+                        if ($tariffs->have_posts()):
+                            while ($tariffs->have_posts()):
+                                $tariffs->the_post();
+
+                                $price = get_field('price');
+                                $features = get_field('features');
+                                // $check_icon = get_field('check_icon');
+                                $btn_icon = get_field('btn_icon');
+                                $btn_text = get_field('btn_text');
+                                ?>
+                                <div class="col-12 col-md-6 col-lg-4 p-2">
+                                    <div class="tariffs-item-wrapper">
+
+                                        <h5>
+                                            <?= esc_html(get_the_title()) ?>
+                                        </h5>
+                                        <h3>
+                                            <?= esc_html($price) ?>
+                                        </h3>
+
+                                        <?php if ($features): ?>
+                                            <ul>
+                                                <?php foreach ($features as $item): ?>
+                                                    <?php
+                                                    $check_icon = $item['check_icon'];
+                                                    ?>
+                                                    <li>
+                                                        <?php if ($check_icon): ?>
+                                                            <img src="<?= esc_url($check_icon['url']) ?>"
+                                                                alt="<?= esc_attr($check_icon['alt']) ?>" />
+                                                        <?php endif; ?>
+
+                                                        <?= esc_html($item['feature_text']) ?>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php endif; ?>
+
+                                        <a href="" target="_blank">
+                                            <?= esc_html($btn_text) ?>
+                                            <?php if ($btn_icon): ?>
+                                                <img src="<?= esc_url($btn_icon['url']) ?>" alt="icon" />
+                                            <?php endif; ?>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
+                    </div>
+                </div>
+
+                <!-- <div class="tariffs-card-wrapper">
                     <div class="row m-0">
                         <div class="col-12 col-md-6 col-lg-4 p-2">
                             <div class="tariffs-item-wrapper">
@@ -614,7 +606,7 @@ get_header();
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

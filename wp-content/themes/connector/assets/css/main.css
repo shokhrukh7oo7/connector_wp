@@ -1313,7 +1313,7 @@ p {
   align-items: start;
   gap: 16px;
 }
-.tariffs-wrapper .tariffs-header-wrapper a {
+.tariffs-wrapper .tariffs-header-wrapper h1 {
   font-size: clamp(13px, 1vw, 14px);
   border: 1px solid var(--black-color);
   color: var(--black-color);
@@ -1324,7 +1324,7 @@ p {
   position: relative;
   overflow: hidden;
 }
-.tariffs-wrapper .tariffs-header-wrapper a::before {
+.tariffs-wrapper .tariffs-header-wrapper h1::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1339,7 +1339,7 @@ p {
   );
   transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.tariffs-wrapper .tariffs-header-wrapper a:hover {
+.tariffs-wrapper .tariffs-header-wrapper h1:hover {
   color: var(--white-color);
   background-color: var(--light-green);
 
@@ -1347,7 +1347,7 @@ p {
     rgba(0, 0, 0, 0.12) 0px 6px 12px;
   border-color: var(--light-green);
 }
-.tariffs-wrapper .tariffs-header-wrapper a:hover::before {
+.tariffs-wrapper .tariffs-header-wrapper h1:hover::before {
   left: 100%;
 }
 .tariffs-wrapper .tariffs-header-wrapper h3 {
