@@ -554,18 +554,25 @@ get_header();
         <div class="container">
             <div class="footer-banner-wrapper">
                 <div class="banner-content-wrapper">
-                    <h1>Свяжитесь с нами - и позвольте себе лучшее!</h1>
+                    <h1><?= the_field('footer_banner_header'); ?></h1>
                     <div class="btn-wrapper">
-                        <a href="#" class="contact-btn"> Контакты </a>
-                        <a href="#" class="telegram-btn">
-                            Написать в телеграм
-                            <img src="<?= get_template_directory_uri() ?> /assets/images/home/telegram.png"
-                                alt="image" />
+                        <a href="<?= esc_url(get_permalink(get_page_by_path('contact'))); ?>"
+                            class="contact-btn"><?= the_field('footer_left_btn'); ?></a>
+                        <a href="<?= the_field('footer_right_btn_link'); ?>" class="telegram-btn">
+                            <?= the_field('footer_right_btn'); ?>
+                            <?php
+                            $footer_btn_icon = get_field('footer_right_btn_icon');
+                            ?>
+                            <img src="<?= esc_url($footer_btn_icon['url']) ?> "
+                                alt="<?= esc_attr($footer_btn_icon['alt']); ?>" />
                         </a>
                     </div>
                 </div>
-                <img src="<?= get_template_directory_uri() ?> /assets/images/home/footer-banner.png" class="banner-hand"
-                    alt="image" />
+                <?php
+                $footer_banner_image = get_field('footer_banner');
+                ?>
+                <img class="banner-hand" src="<?= esc_url($footer_banner_image['url']) ?> "
+                    alt="<?= esc_attr($footer_banner_image['alt']); ?>" />
             </div>
         </div>
     </section>
