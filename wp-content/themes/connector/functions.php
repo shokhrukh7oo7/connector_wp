@@ -243,6 +243,22 @@ function register_tariffs_post_type()
 }
 add_action('init', 'register_tariffs_post_type');
 // ------------------------------------------------------------------------
+function register_utilities_post_type()
+{
+	register_post_type('utility', array(
+		'labels' => array(
+			'name' => 'Полезности',
+			'singular_name' => 'Полезность',
+		),
+		'public' => true,
+		'has_archive' => false,
+		'menu_icon' => 'dashicons-post-status',
+		'show_in_rest' => true,
+		'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
+	));
+}
+add_action('init', 'register_utilities_post_type');
+// ------------------------------------------------------------------------
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' => 'Настройки шапки',
