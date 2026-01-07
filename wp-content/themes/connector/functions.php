@@ -303,3 +303,32 @@ class Header_Menu_Walker extends Walker_Nav_Menu
 }
 
 // ------------------------------------------------------------------------
+function custom_breadcrumbs()
+{
+	echo '<nav class="breadcrumbs">';
+	echo '<a href="' . home_url('/') . '">Главная</a>';
+
+	// Получаем страницу utilities по slug
+	$utilities_page = get_page_by_path('utilities');
+
+	if ($utilities_page) {
+		$utilities_page_id = function_exists('pll_get_post')
+			? pll_get_post($utilities_page->ID)
+			: $utilities_page->ID;
+
+		$utilities_link = get_permalink($utilities_page_id);
+
+		// Если это сама страница Полезности
+		if (is_page($utilities_page_id)) {
+			echo ' / <span>Полезности</span>';
+		}
+		// Если это отдельная статья CPT
+		elseif (is_singular('utility')) {
+			echo ' / <a href="' . esc_url($utilities_link) . '">Полезности</a>';
+			echo ' / <span>' . get_the_title() . '</span>';
+		}
+	}
+
+	echo '</nav>';
+}
+// ------------------------------------------------------------------------

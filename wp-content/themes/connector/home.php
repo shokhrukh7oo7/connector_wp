@@ -431,7 +431,7 @@ get_header();
                                                 <?= esc_html(get_the_title()) ?>
                                             </h6>
 
-                                            <?= the_content();?>
+                                            <?php the_content();?>
 
                                             <a href="<?= esc_url($permalink) ?>">
                                                 <?= esc_html($btn_text) ?>

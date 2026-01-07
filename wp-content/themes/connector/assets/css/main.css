@@ -2142,6 +2142,69 @@ p {
   font-size: 13px;
   margin: 0;
 }
+.breadcrumbs a {
+  color: var(--grey-color);
+  font-weight: 400;
+  font-size: 13px;
+  margin: 0;
+}
+.breadcrumbs span {
+  color: var(--light-green);
+  font-weight: 400;
+  font-size: 13px;
+  margin: 0;
+}
+.utility-detail img {
+  border-radius: 32px;
+  height: auto;
+  aspect-ratio: 1200 / 480;
+  /* object-fit: cover; */
+  object-fit: contain;
+  margin-top: 20px;
+}
+.utility-detail .breadcrumbs {
+  text-align: center;
+  margin: 10px 0;
+}
+.utility-detail h1 {
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 48px);
+  margin: 0;
+  text-align: center;
+}
+.utility-detail .content p {
+  color: var(--black-color);
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.pagination-wrapper span {
+  color: var(--white-color);
+  background-color: var(--light-green);
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+.pagination-wrapper a {
+  color: var(--black-color);
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+}
+
 .utilities-wrapper .utilities-header-wrapper .breadcrumbs span {
   color: var(--light-green);
   font-weight: 400;
