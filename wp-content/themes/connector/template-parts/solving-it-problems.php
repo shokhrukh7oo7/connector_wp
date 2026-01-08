@@ -100,7 +100,6 @@ get_header();
             <div class="map-container-wrapper">
                 <img class="map-banner"
                     src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/map.png" alt="image" />
-
                 <div class="map-content-wrapper">
                     <div class="left-wrapper">
                         <h1>Где бы вы ни были, мы можем помочь</h1>
