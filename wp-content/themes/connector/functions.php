@@ -306,29 +306,36 @@ class Header_Menu_Walker extends Walker_Nav_Menu
 function custom_breadcrumbs()
 {
 	echo '<nav class="breadcrumbs">';
-	echo '<a href="' . home_url('/') . '">Главная</a>';
+	echo '<a href="' . esc_url(home_url('/')) . '">'
+		. esc_html(pll__('Главная')) .
+		'</a>';
 
-	// Получаем страницу utilities по slug
-	$utilities_page = get_page_by_path('utilities');
+	// CPT utility
+	if (is_singular('utility')) {
+		$utilities_page = get_page_by_path('utilities');
+		if ($utilities_page) {
+			$id = function_exists('pll_get_post')
+				? pll_get_post($utilities_page->ID)
+				: $utilities_page->ID;
 
-	if ($utilities_page) {
-		$utilities_page_id = function_exists('pll_get_post')
-			? pll_get_post($utilities_page->ID)
-			: $utilities_page->ID;
+			echo ' / <a href="' . esc_url(get_permalink($id)) . '">'
+				. esc_html(pll__('Полезности')) .
+				'</a>';
 
-		$utilities_link = get_permalink($utilities_page_id);
-
-		// Если это сама страница Полезности
-		if (is_page($utilities_page_id)) {
-			echo ' / <span>Полезности</span>';
+			echo ' / <span>' . esc_html(get_the_title()) . '</span>';
 		}
-		// Если это отдельная статья CPT
-		elseif (is_singular('utility')) {
-			echo ' / <a href="' . esc_url($utilities_link) . '">Полезности</a>';
-			echo ' / <span>' . get_the_title() . '</span>';
-		}
+	}
+	// Pages (Clients, About, Contact и т.д.)
+	elseif (is_page()) {
+		echo ' / <span>' . esc_html(get_the_title()) . '</span>';
 	}
 
 	echo '</nav>';
 }
 // ------------------------------------------------------------------------
+add_action('init', function () {
+	if (function_exists('pll_register_string')) {
+		pll_register_string('breadcrumbs_home', 'Главная', 'Breadcrumbs');
+		pll_register_string('breadcrumbs_utilities', 'Полезности', 'Breadcrumbs');
+	}
+});
