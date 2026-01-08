@@ -619,6 +619,3 @@ get_header();
 <?php
 get_footer();
 ?>
-
-1520448875
-AdgE7rwM

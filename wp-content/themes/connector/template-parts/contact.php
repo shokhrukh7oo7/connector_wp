@@ -50,8 +50,8 @@ get_header();
                     <div class="address-location-wrapper">
                         <div class="yandex-map-wrapper">
                             <?php
-                            $map = get_field('yandex_map'); // массив ACF
-                            
+                            $map = get_field('yandex_map');
+
                             if ($map && $map['latitude'] && $map['longitude']):
                                 $lat = esc_attr($map['latitude']);
                                 $lng = esc_attr($map['longitude']);
