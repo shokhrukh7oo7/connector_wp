@@ -35,50 +35,30 @@ get_header();
                     </div>
 
                     <div class="comment-wrapper">
-                        <h3>Отзывы</h3>
-                        <p>Что говорят наши клиенты</p>
+                        <h3><?= the_field('comment_header'); ?></h3>
+                        <p><?= the_field('comment_description'); ?></p>
 
                         <div class="comment-card-wrapper">
+
                             <div class="row m-0">
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                                    <div class="item">
-                                        <a data-fancybox="gallery"
-                                            href="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg">
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg"
-                                                alt="image" />
-                                        </a>
-                                    </div>
-                                </div>
+                                <?php if (have_rows('clients_gallery')): ?>
+                                    <?php while (have_rows('clients_gallery')):
+                                        the_row(); ?>
+                                        <?php $image = get_sub_field('image'); ?>
 
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                                    <div class="item">
-                                        <a data-fancybox="gallery"
-                                            href="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg">
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg"
-                                                alt="image" />
-                                        </a>
-                                    </div>
-                                </div>
+                                        <?php if ($image): ?>
+                                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
+                                                <div class="item">
+                                                    <a data-fancybox="gallery" href="<?= esc_url($image['url']); ?>">
+                                                        <img src="<?= esc_url($image['sizes']['medium']); ?>"
+                                                            alt="<?= esc_attr($image['alt']); ?>">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
 
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                                    <div class="item">
-                                        <a data-fancybox="gallery"
-                                            href="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg">
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg"
-                                                alt="image" />
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
-                                    <div class="item">
-                                        <a data-fancybox="gallery"
-                                            href="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg">
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/clients/comment-1.jpg"
-                                                alt="image" />
-                                        </a>
-                                    </div>
-                                </div>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
