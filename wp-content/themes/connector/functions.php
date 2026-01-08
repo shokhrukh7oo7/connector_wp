@@ -227,6 +227,21 @@ function register_directions_post_type()
 add_action('init', 'register_directions_post_type');
 
 // ------------------------------------------------------------------------
+function register_industry_post_type()
+{
+	register_post_type('industry', array(
+		'labels' => array(
+			'name' => 'Отрасли',
+			'singular_name' => 'Отрасль',
+		),
+		'public' => true,
+		'has_archive' => false,
+		'show_in_rest' => true, // для Gutenberg
+		'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
+	));
+}
+add_action('init', 'register_industry_post_type');
+// ------------------------------------------------------------------------
 function register_tariffs_post_type()
 {
 	register_post_type('tariff', array(
@@ -337,5 +352,6 @@ add_action('init', function () {
 	if (function_exists('pll_register_string')) {
 		pll_register_string('breadcrumbs_home', 'Главная', 'Breadcrumbs');
 		pll_register_string('breadcrumbs_utilities', 'Полезности', 'Breadcrumbs');
+		pll_register_string('back_to_home', 'Назад', 'back_to_home');
 	}
 });

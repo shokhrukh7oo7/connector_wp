@@ -36,243 +36,59 @@ get_header();
             <div class="container">
                 <div class="directions-wrapper">
                     <div class="directions-header-wrapper">
-                        <h1>Отрасли, которым мы помогаем</h1>
-                        <h3>Решение ИТ-проблем в каждой отрасли</h3>
+                        <h1><?= the_field('industry_header'); ?></h1>
+                        <h3><?= the_field('industry_description'); ?></h3>
                         <p>
-                            От стратегий роста для стартапов до помощи существующим
-                            бизнесам — мы сделали это все!
+                            <?= nl2br(get_field('industry_description_2')); ?>
                         </p>
                     </div>
 
                     <div class="directions-content-wrapper">
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/1.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Агробизнес и сельское хозяйство</h6>
-                                <p>
-                                    Sustainable farming practices are enhancing productivity
-                                    while reducing environmental impact. Innovations in…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
+                        <?php
+                        $industry = new WP_Query(array(
+                            'post_type' => 'industry',
+                            'posts_per_page' => -1,
+                        ));
 
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/2.svg"
-                                        alt="image" />
+                        if ($industry->have_posts()):
+                            while ($industry->have_posts()):
+                                $industry->the_post();
+                                $icon = get_field('icon'); // ACF поле для иконки направления
+                                $btn_text = get_field('btn_text'); // ACF поле для текста кнопки
+                                $btn_icon = get_field('btn_icon'); // ACF поле для иконки кнопки
+                                // $description = get_field('description'); // ACF поле для описания
+                                $permalink = get_permalink(); // Ссылка на пост
+                                ?>
+                                <div class="item">
+                                    <div class="item-content">
+                                        <div class="icon-wrapper">
+                                            <?php if ($icon): ?>
+                                                <img src="<?= esc_url($icon['url']) ?>" alt="<?= esc_attr(get_the_title()) ?>" />
+                                            <?php endif; ?>
+                                        </div>
+                                        <h6>
+                                            <?= get_the_title() ?>
+                                        </h6>
+                                        <!-- <?= esc_html($description) ?> -->
+                                        <?= the_content() ?>
+                                    </div>
+                                    <div class="btn-wrapper">
+                                        <a href="<?= esc_url($permalink) ?>">
+                                            <?= esc_html($btn_text) ?>
+                                        </a>
+                                        <?php if ($btn_icon): ?>
+                                            <img src="<?= esc_url($btn_icon['url']) ?>" alt="icon" />
+                                        <?php else: ?>
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                                alt="icon" />
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                                <h6>Производство и промышленность</h6>
-                                <p>
-                                    Industry 4.0 is revolutionizing manufacturing with smart
-                                    automation, IoT, and AI-driven quality…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/3.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Автомобиле-строение</h6>
-                                <p>
-                                    The automotive industry is shifting toward electrification
-                                    and autonomous mobility. EVs, AI-powered…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/4.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Банковский и финансовый сектор</h6>
-                                <p>
-                                    Fintech innovations, AI-driven risk assessment, and
-                                    blockchain technology are reshaping financial services.…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/5.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Здравоохранение и фармацевтика</h6>
-                                <p>
-                                    AI-powered diagnostics, personalized medicine, are
-                                    revolutionizing healthcare. Telemedicine and wearable
-                                    health tech…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/6.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Энергетика и добыча ископаемых</h6>
-                                <p>
-                                    The transition to renewable energy is accelerating with
-                                    advancements in solar, wind,
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/7.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Медиа и шоубизнес</h6>
-                                <p>
-                                    Streaming platforms, AI-generated content, and immersive
-                                    technologies like AR/VR are reshaping entertainment.…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/8.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Торговля и ритейл</h6>
-                                <p>
-                                    Cloud computing, AI, and cybersecurity advancements are
-                                    driving digital transformation. Businesses are…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/9.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Телекоммуникации</h6>
-                                <p>
-                                    5G and fiber-optic networks are revolutionizing
-                                    connectivity, enabling faster data transmission and…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/10.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Образование и социальный сектор</h6>
-                                <p>
-                                    Digital government services, AI-driven policy analysis,
-                                    and blockchain transparency are enhancing public…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/11.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Склады, транспорт и логистика</h6>
-                                <p>
-                                    E-commerce, AI-driven marketing, and sustainable packaging
-                                    are reshaping the CPG sector. Personalization,…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/12.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Спорт</h6>
-                                <p>
-                                    Sustainable forestry practices, bio-based materials, and
-                                    AI-driven supply chain management are transforming…
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
+                                <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>
