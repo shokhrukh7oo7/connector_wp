@@ -49,23 +49,25 @@ get_header();
                     <!-- maps -->
                     <div class="address-location-wrapper">
                         <div class="yandex-map-wrapper">
-                            <iframe
-                                src="https://yandex.uz/map-widget/v1/?ll=69.259578%2C41.322278&z=18&l=map&pt=69.259578,41.322278,pm2rdm"
-                                width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <!-- <p>Яндекс карты</p> -->
+                            <?php
+                            $map = get_field('yandex_map'); // массив ACF
+                            
+                            if ($map && $map['latitude'] && $map['longitude']):
+                                $lat = esc_attr($map['latitude']);
+                                $lng = esc_attr($map['longitude']);
+                                $zoom = isset($map['zoom']) ? intval($map['zoom']) : 18;
+
+                                // фиксируем тип маркера pm2rdm
+                                $marker = 'pm2rdm';
+
+                                // формируем src iframe
+                                $src = "https://yandex.uz/map-widget/v1/?ll={$lng}%2C{$lat}&z={$zoom}&l=map&pt={$lng},{$lat},{$marker}";
+                                ?>
+                                <iframe src="<?= esc_url($src); ?>" width="600" height="450" style="border: 0"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            <?php endif; ?>
                         </div>
-                        <!-- <div class="google-map-wrapper">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.375087624003!2d69.25658791091261!3d41.32245639990164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8bfb07ea59e5%3A0x14e42da4d90173d7!2sTole-Bi%20boutique%20store!5e0!3m2!1sru!2s!4v1766141361126!5m2!1sru!2s"
-                    width="600"
-                    height="450"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                    </div> -->
                     </div>
                 </div>
             </div>
