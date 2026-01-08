@@ -2414,7 +2414,7 @@ p {
 .contact-wrapper .contact-body-wrapper .address-wrapper p span {
   font-weight: 700;
 }
-.contact-wrapper .contact-body-wrapper .address-wrapper p a {
+.contact-wrapper .contact-body-wrapper .address-wrapper a {
   color: var(--light-green);
 }
 .contact-wrapper .contact-body-wrapper .address-image-wrapper {

@@ -10,43 +10,41 @@ get_header();
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-header-wrapper">
-                    <h6>Контакты</h6>
-                    <h1>Контактные данные команды IT специалистов</h1>
-                    <p class="breadcrumbs">Главная / <span>Клиенты</span></p>
+                    <h6><?= the_field('contact_header'); ?></h6>
+                    <h1><?= the_field('contact_description'); ?></h1>
+                    <?php custom_breadcrumbs(); ?>
                 </div>
 
                 <div class="contact-body-wrapper">
                     <!-- contact -->
                     <div class="address-wrapper">
-                        <h3>Наш адрес:</h3>
-                        <p>
-                            Республика Узбекистан, г.Ташкент, <br />
-                            100011, ул.Навои 16А, офис 408
-                        </p>
-                        <p>
-                            <span>Моб: </span><a href="tel:">+998 (96) 365-93-25</a> (для
-                            абонентов круглосуточно),
-                        </p>
-                        <p>
-                            <span>Тел/факс: </span><a href="tel:">+998 (71) 241-56-50</a>
-                        </p>
-                        <p>
-                            <span>E-mail: </span><a href="mailto:">info@connector.uz</a>
-                        </p>
-                        <p><span>Режим работы: </span>Пн-Пт с 9-00 по 18-00</p>
+                        <?= the_field('contact_adress'); ?>
                     </div>
 
                     <!-- address -->
                     <div class="address-image-wrapper">
                         <div class="left-image-wrapper">
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/contact/address-1.png" alt="image" />
-                            <p>Внешний вид входа в наше здание</p>
+                            <?php
+                            $left_image = get_field('contact_left_photo'); // массив
+                            if ($left_image):
+                                ?>
+                                <img src="<?= esc_url($left_image['url']); ?>" alt="<?= esc_attr($left_image['alt']); ?>" />
+                                <p><?= the_field('contact_left_photo_text'); ?></p>
+                            <?php endif; ?>
                         </div>
+
                         <div class="right-image-wrapper">
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/contact/address-2.png" alt="image" />
-                            <p>Схема для ориентирования на местности</p>
+                            <?php
+                            $right_image = get_field('contact_right_photo'); // массив
+                            if ($right_image):
+                                ?>
+                                <img src="<?= esc_url($right_image['url']); ?>"
+                                    alt="<?= esc_attr($right_image['alt']); ?>" />
+                                <p><?= the_field('contact_right_photo_text'); ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
+
 
                     <!-- maps -->
                     <div class="address-location-wrapper">
@@ -67,7 +65,7 @@ get_header();
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                   ></iframe>
-                </div> -->
+                    </div> -->
                     </div>
                 </div>
             </div>
@@ -77,7 +75,8 @@ get_header();
     <section class="contact-counsultation">
         <div class="container">
             <div class="map-container-wrapper">
-                <img class="map-banner" src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/map.png" alt="image" />
+                <img class="map-banner"
+                    src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/map.png" alt="image" />
 
                 <div class="map-content-wrapper">
                     <div class="left-wrapper">
@@ -94,11 +93,15 @@ get_header();
                             <div class="btn-wrapper">
                                 <a href="#">
                                     Позвонить
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/phone.svg" alt="image" />
+
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/phone.svg"
+                                        alt="image" />
                                 </a>
                                 <a href="#">
                                     Написать в Телеграм
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/telegram-logo.svg" alt="image" />
+
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/telegram-logo.svg"
+                                        alt="image" />
                                 </a>
                             </div>
                         </div>
