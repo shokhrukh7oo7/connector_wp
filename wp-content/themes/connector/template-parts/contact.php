@@ -77,33 +77,41 @@ get_header();
     <section class="contact-counsultation">
         <div class="container">
             <div class="map-container-wrapper">
-                <img class="map-banner"
-                    src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/map.png" alt="image" />
+                <?php
+                $map_banner = get_field('bg_banner');
+                ?>
+                <img class="map-banner" src="<?= esc_url($map_banner['url']); ?>"
+                    alt="<?= esc_attr($map_banner['alt']); ?>" />
 
                 <div class="map-content-wrapper">
                     <div class="left-wrapper">
-                        <h1>Где бы вы ни были, мы можем помочь</h1>
+                        <h1><?= the_field('bg_banner_header'); ?></h1>
                         <p>
-                            Наша задача - помочь вашему бизнесу работать быстрее и
-                            прибыльнее, взяв на себя все рутинные IT-задачи.
+                            <?= the_field('bg_banner_description'); ?>
                         </p>
                     </div>
                     <div class="right-wrapper">
                         <div class="right-contact-wrapper">
-                            <h3>Бесплатная консультация</h3>
-                            <p>Позвоните или напишите в Телеграм</p>
+                            <h3><?= the_field('bg_banner_btn_header'); ?></h3>
+                            <p><?= the_field('bg_banner_btn_description'); ?></p>
                             <div class="btn-wrapper">
-                                <a href="#">
-                                    Позвонить
+                                <a href="tel:<?= preg_replace('/\D+/', '', get_field('top_btn_phone_number')); ?>">
+                                    <?= the_field('top_btn_text'); ?>
 
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/phone.svg"
-                                        alt="image" />
+                                    <?php
+                                    $btn_icon = get_field('top_btn_icon');
+                                    ?>
+                                    <img src="<?= esc_url($btn_icon['url']); ?>"
+                                        alt="<?= esc_attr($btn_icon['alt']); ?>" />
                                 </a>
-                                <a href="#">
-                                    Написать в Телеграм
+                                <a href="<?= the_field('bottom_btn_link'); ?>">
+                                    <?= the_field('bottom_btn_text'); ?>
 
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/telegram-logo.svg"
-                                        alt="image" />
+                                    <?php
+                                    $bottom_btn_icon = get_field('bottom_btn_icon');
+                                    ?>
+                                    <img src="<?= esc_url($bottom_btn_icon['url']); ?>"
+                                        alt="<?= esc_attr($bottom_btn_icon['alt']); ?>" />
                                 </a>
                             </div>
                         </div>
