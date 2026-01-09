@@ -2638,7 +2638,8 @@ p {
   ul
   li {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  align-items: start;
   gap: 5px;
   font-size: 16px;
   font-weight: 400;

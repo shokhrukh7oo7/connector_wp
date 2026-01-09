@@ -155,15 +155,15 @@ get_header();
                                     </div>
                                 <?php endwhile; ?>
                             <?php endif; ?>
-                            </div>
-                        </div>
-                     <div    class="swiper-nav">
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
                         </div>
                     </div>
+                    <div class="swiper-nav">
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
+            </div>
         </div>
     </section>
 </main>

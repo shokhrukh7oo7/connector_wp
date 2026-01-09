@@ -10,66 +10,56 @@ get_header();
         <div class="container">
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
-                    <h6>Услуги</h6>
-                    <h1>IT обслуживание</h1>
+                    <h6><?= the_field('it_service_header'); ?></h6>
+                    <h1><?= the_field('it_service_description'); ?></h1>
                     <p>
-                        Команда IT специалистов #connector с 2009 года занимается
-                        техническим обслуживанием организаций в Ташкенте, Узбекистане
+                        <?= nl2br(get_field('it_service_description_2')) ?>
                     </p>
-                    <p class="breadcrumbs">Главная / Услуги / <span>Клиенты</span></p>
+                    <!-- <p class="breadcrumbs">Главная / Услуги / <span>Клиенты</span></p> -->
+                    <?php custom_breadcrumbs(); ?>
                 </div>
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri() ?> /assets/images/it-service/banner.png" alt="image" />
+                        <?php
+                        $banner = get_field('it_service_banner');
+                        ?>
+                        <img src="<?= esc_url($banner['url']) ?>" alt="<?= esc_attr($banner['alt']) ?>" />
                     </div>
 
                     <div class="banner-description-wrapper">
-                        <p>
-                            Мы обслуживаем всю (или частично) IT инфраструктуру Заказчиков
-                            на условиях ежемесячной абонентской платы. Для этих работ у
-                            нас есть IT отдел (IT блок) (см. Структура компании), который
-                            выполняет полный спектр работ по IT аутсорсингу (IT
-                            обслуживанию).
-                            <br />
-                            <br />
-                            <span>
-                                Что такое IT outsourcing? Как он снижает расходы? Почему это
-                                выгодно? Почему это всегда лучший доступ к экспертизе?
-                            </span>
-                            Ответы на эти вопросы см. Об IT аутсорсинге.
-                            <br />
-                            <br />
-                            За долгие годы работы в Узбекистане мы сотрудничали и
-                            продолжаем сотрудничать с почти сотней организаций из
-                            различных сфер деятельности. Получен колоссальный
-                            профессиональный опыт, позволяющий выполнять IT обслуживание
-                            на высоком профессиональном уровне. Что позволяет нам вести
-                            непрерывную работу с учетом актуальных технологических
-                            тенденций.
-                            <br />
-                            <br />
-                            Мы работаем с вашими IT-системами так же внимательно, как
-                            семейный врач заботится о своих пациентах, становимся частью
-                            вашей команды, прекрасно понимаем все технологические задачи,
-                            нюансы и потребности. Обеспечиваем стабильную работу
-                            IT-инфраструктуры, учитывая особенности повседневной
-                            деятельности, финансовые возможности компании и требования
-                            законодательства Узбекистана.
-                        </p>
+                        <?= the_content(); ?>
                     </div>
 
                     <div class="extra-section-wrapper">
-                        <h5>Что входит в IT обслуживание?</h5>
+                        <h5><?= the_field('it_service_extra_info'); ?></h5>
                         <div class="left-right-wrapper">
                             <div class="left-wrapper">
-                                <ul>
+                                <?php if (have_rows('extra_info')): ?>
+                                    <ul>
+                                        <?php while (have_rows('extra_info')):
+                                            the_row(); ?>
+                                            <?php
+                                            $extra_icon = get_sub_field('extra_icon');
+                                            ?>
+                                            <li>
+                                                <img src="<?= esc_url($extra_icon['url']) ?>"
+                                                    alt="<?= esc_attr($extra_icon['alt']) ?>" />
+                                                <?= esc_html(get_sub_field('extra_text')); ?>
+                                            </li>
+                                        <?php endwhile; ?>
+                                    </ul>
+                                <?php endif; ?>
+
+                                <!-- <ul>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Диагностика и профилактика оборудования
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Настройка и администрирование физических и виртуальных
                                         серверов, систем хранения данных (СХД/NAS), рабочих
                                         станций (компьютеры и ноутбуки), сетевого оборудования
@@ -77,38 +67,49 @@ get_header();
                                         точки доступа) и периферии (принтеры, сканеры, МФУ)
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Контроль и мониторинг состояния IT-инфраструктуры
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Обновление и оптимизация программного обеспечения
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Резервное копирование и восстановление данных
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Информационная и антивирусная безопасность
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Сопровождение и поддержка пользователей (help desk)
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Поддержка удалённых рабочих мест
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Возможность быстрого закупа необходимых комплектующих и
                                         расходников
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                             <div class="right-wrapper">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/it-service/extra-1.png" alt="image" />
+                                <?php
+                                $extra_image = get_field('extra_right_image');
+                                ?>
+                                <img src="<?= esc_url($extra_image['url']) ?>"
+                                    alt="<?= esc_attr($extra_image['alt']) ?>" />
                             </div>
                         </div>
                     </div>
@@ -122,50 +123,61 @@ get_header();
                             <div class="left-wrapper">
                                 <ul>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Локальные вычислительные сети ЛВС/СКС/ВОЛС
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Системы видеонаблюдения и безопасности
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Охранно-пожарная сигнализация (ОПС)
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Серверные и дата-центры
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Wi-Fi системы для организаций и радиомосты
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Системы контроля доступа (СКУД) и турникеты
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Системы бесперебойного питания и солнечные панели
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Конференц-системы, мультимедийные комплексы
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Звукоусиление
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="img" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="img" />
                                         Возможность заказать модернизацию или новый монтаж IT
                                         систем
                                     </li>
                                 </ul>
                             </div>
                             <div class="right-wrapper">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/it-service/extra-2.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/it-service/extra-2.png"
+                                    alt="image" />
                             </div>
                         </div>
                     </div>
@@ -318,7 +330,8 @@ get_header();
 
                     <div class="extra-info-wrapper">
                         <div class="banner-wrapper">
-                            <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/extra-2.png" alt="image" />
+                            <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/extra-2.png"
+                                alt="image" />
                         </div>
 
                         <div class="extra-info-content">
@@ -395,25 +408,30 @@ get_header();
                                     <h3>от 3 млн.сум / мес</h3>
                                     <ul>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 5 ПК или ноутбуков
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 2 принтеров или МФУ
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Неограниченное количество заправок принтеров
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             2-3 плановых выезда в месяц
                                         </li>
                                     </ul>
                                     <a href="#">
                                         Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -424,25 +442,30 @@ get_header();
                                     <h3>от 5 млн.сум / мес</h3>
                                     <ul>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 12 ПК или ноутбуков
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 4 принтеров или МФУ
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Неограниченное количество заправок принтеров
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             3-5 плановых выезда в месяц
                                         </li>
                                     </ul>
                                     <a href="#">
                                         Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -453,25 +476,30 @@ get_header();
                                     <h3>от 7 млн.сум / мес</h3>
                                     <ul>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 20 ПК или ноутбуков
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 6 принтеров или МФУ
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Неограниченное количество заправок принтеров
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Индивидуальный график выездов
                                         </li>
                                     </ul>
                                     <a href="#">
                                         Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -482,29 +510,35 @@ get_header();
                                     <h3>от 7 млн.сум / мес</h3>
                                     <ul>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 12 ПК или ноутбуков
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 2 принтеров или МФУ
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Неограниченное количество заправок принтеров
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             1 сервер
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             2-3 плановых выезда в месяц
                                         </li>
                                     </ul>
                                     <a href="#">
                                         Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -515,29 +549,35 @@ get_header();
                                     <h3>от 9 млн.сум / мес</h3>
                                     <ul>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 20 ПК или ноутбуков
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 4 принтеров или МФУ
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Неограниченное количество заправок принтеров
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 3 серверов
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             3-5 плановых выезда в месяц
                                         </li>
                                     </ul>
                                     <a href="#">
                                         Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -548,29 +588,35 @@ get_header();
                                     <h3>от 12 млн.сум / мес</h3>
                                     <ul>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 50 ПК или ноутбуков
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 15 принтеров или МФУ
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Неограниченное количество заправок принтеров
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             До 10 серверов
                                         </li>
                                         <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                                alt="image" />
                                             Индивидуальный график выездов
                                         </li>
                                     </ul>
                                     <a href="#">
                                         Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -599,7 +645,8 @@ get_header();
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-1.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-1.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>IT аудит</h6>
                                 <p>
@@ -610,14 +657,16 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-2.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-2.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Подписание NDA</h6>
                                 <p>
@@ -628,14 +677,16 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-3.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-3.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Система контроля заявок</h6>
                                 <p>
@@ -645,14 +696,16 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-4.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-4.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Об IT аутсорсинге</h6>
                                 <p>
@@ -663,7 +716,8 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
                     </div>
