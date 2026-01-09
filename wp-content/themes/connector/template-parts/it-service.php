@@ -15,7 +15,6 @@ get_header();
                     <p>
                         <?= nl2br(get_field('it_service_description_2')) ?>
                     </p>
-                    <!-- <p class="breadcrumbs">Главная / Услуги / <span>Клиенты</span></p> -->
                     <?php custom_breadcrumbs(); ?>
                 </div>
 
@@ -50,59 +49,6 @@ get_header();
                                         <?php endwhile; ?>
                                     </ul>
                                 <?php endif; ?>
-
-                                <!-- <ul>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Диагностика и профилактика оборудования
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Настройка и администрирование физических и виртуальных
-                                        серверов, систем хранения данных (СХД/NAS), рабочих
-                                        станций (компьютеры и ноутбуки), сетевого оборудования
-                                        (коммутаторы, маршрутизаторы, сетевые экраны, Wi-Fi
-                                        точки доступа) и периферии (принтеры, сканеры, МФУ)
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Контроль и мониторинг состояния IT-инфраструктуры
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Обновление и оптимизация программного обеспечения
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Резервное копирование и восстановление данных
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Информационная и антивирусная безопасность
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Сопровождение и поддержка пользователей (help desk)
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Поддержка удалённых рабочих мест
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Возможность быстрого закупа необходимых комплектующих и
-                                        расходников
-                                    </li>
-                                </ul> -->
                             </div>
                             <div class="right-wrapper">
                                 <?php
