@@ -38,110 +38,40 @@ get_header();
         <div class="container">
             <div class="card-section-wrapper">
                 <div class="row m-0">
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-1.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Как организовать работу с 1C на предприятии</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-2.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Регулярное бэĸапирование данных и процессов</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
+                    <?php if (have_rows('cards')): ?>
+                        <?php while (have_rows('cards')):
+                            the_row(); ?>
+                            <div class="col-12 col-lg-6 p-2">
+                                <div class="card-item">
+                                    <div class="card-image">
+                                        <?php
+                                        $card_image = get_sub_field('card_icon');
+                                        ?>
+                                        <img src="<?= esc_url($card_image['url']) ?>"
+                                            alt="<?= esc_attr($card_image['alt']); ?>" />
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-top-wrapper">
+                                            <h5><?= get_sub_field('card_header'); ?></h5>
+                                            <p>
+                                                <?= nl2br(get_sub_field('card_description')); ?>
+                                            </p>
+                                        </div>
+                                        <div class="card-bottom-wrapper">
+                                            <a href="">
+                                                <?= get_sub_field('card_btn'); ?>
+                                                <?php
+                                                $card_link_icon = get_sub_field('card_btn_icon');
+                                                ?>
+                                                <img src="<?= esc_url($card_link_icon['url']) ?>"
+                                                    alt="<?= esc_attr($card_link_icon['alt']); ?>" />
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-3.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Связь филиалов предприятия через VPN</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-4.png"
-                                    alt="image" />
-                            </div>
-                            <div class="card-content">
-                                <div class="card-top-wrapper">
-                                    <h5>Мониторинг IT инфраструĸтуры 24/7</h5>
-                                    <p>
-                                        Cloud computing revolutionizes IT by offering scalable
-                                        resources over the internet. Businesses can reduce
-                                        costs, enhance flexibility, and improve collaboration.
-                                        Popular services include AWS, Google…
-                                    </p>
-                                </div>
-                                <div class="card-bottom-wrapper">
-                                    <a href="#">
-                                        Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
