@@ -62,141 +62,66 @@ get_header();
 
                     <div class="extra-section-wrapper">
                         <h5>
-                            Дополнительно мы можем взять на обслуживание существующие IT
-                            системы:
+                            <?= the_field('it_service_extra_info_2'); ?>
                         </h5>
                         <div class="left-right-wrapper">
                             <div class="left-wrapper">
-                                <ul>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Локальные вычислительные сети ЛВС/СКС/ВОЛС
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Системы видеонаблюдения и безопасности
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Охранно-пожарная сигнализация (ОПС)
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Серверные и дата-центры
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Wi-Fi системы для организаций и радиомосты
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Системы контроля доступа (СКУД) и турникеты
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Системы бесперебойного питания и солнечные панели
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Конференц-системы, мультимедийные комплексы
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Звукоусиление
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="img" />
-                                        Возможность заказать модернизацию или новый монтаж IT
-                                        систем
-                                    </li>
-                                </ul>
+                                <?php if (have_rows('extra_info_2')): ?>
+                                    <ul>
+                                        <?php while (have_rows('extra_info_2')):
+                                            the_row(); ?>
+                                            <?php
+                                            $extra_icon = get_sub_field('extra_icon');
+                                            ?>
+                                            <li>
+                                                <img src="<?= esc_url($extra_icon['url']) ?>"
+                                                    alt="<?= esc_attr($extra_icon['alt']) ?>" />
+                                                <?= esc_html(get_sub_field('extra_text')); ?>
+                                            </li>
+                                        <?php endwhile; ?>
+                                    </ul>
+                                <?php endif; ?>
                             </div>
                             <div class="right-wrapper">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/it-service/extra-2.png"
-                                    alt="image" />
+                                <?php
+                                $extra_image_2 = get_field('extra_right_image_2');
+                                ?>
+                                <img src="<?= esc_url($extra_image_2['url']) ?>"
+                                    alt="<?= esc_attr($extra_image_2['alt']) ?>" />
                             </div>
                         </div>
                     </div>
 
                     <div class="content">
-                        <h6>Почему выбирают нас?</h6>
+                        <h6><?= the_field('choose_us_header'); ?></h6>
                         <p>
-                            У нас не просто IT outsourcing, а предоставление полного цикла
-                            услуг от возможности приобретения IT оборудования и
-                            программного обеспечения, монтажа IT систем, обслуживание
-                            всего спектра техники и IT систем, хранение данных и
-                            безопасность до собственного сервисного центра.
-                            <br />
-                            <br />
-                            Наша команда имеет квалифицированных инженеров для работы с
-                            серверным и сетевым оборудованием, IT специалистов для работы
-                            с рабочими станциями и пользователями, а так же мастеров по
-                            ремонту вычислительной и оргтехники. Что позволяет выполнять
-                            заявки по IT обслуживанию максимально быстро и эффективно c
-                            четким соблюдением SLA (гарантированных сроков реагирования и
-                            устранения неисправностей).
-                            <br />
-                            <br />
-                            Наши специалисты оснащены автотранспортом, современными
-                            ноутбуками и компьютерами, измерительными приборами,
-                            оборудованием для тестирования, большим пакетом современного и
-                            актуального программного обеспечения, инструментами
-                            мониторинга и управления. Это позволяет осуществлять IT
-                            поддержку компаний разного масштаба и расширяет географию на
-                            всю территорию Узбекистана.
-                            <br />
-                            <br />
-                            С 2009 года наш головной офис неизменно находится по одному
-                            адресу в Ташкенте. Мы дорожим каждым клиентом и не допускаем
-                            ситуации, когда о ком-то «забывают». В работе мы строго
-                            придерживаемся принципов конфиденциальности и уделяем особое
-                            внимание обеспечению безопасности данных наших клиентов. Для
-                            дополнительной защиты информации мы заключаем договор о
-                            неразглашении (NDA – Non-Disclosure Agreement), который
-                            гарантирует соблюдение полной тайны всех полученных от
-                            Заказчика сведений. Наш опыт и профессионализм заслужили
-                            доверие многих локальных и международных компаний, работающих
-                            на рынке Узбекистана. Ознакомиться с отзывами наших клиентов
-                            можно здесь.
-                            <br />
-                            <br />
-                            Во время IT обслуживания мы оказываем профессиональные
-                            консультации по текущим вопросам и перспективе развития IT
-                            вашей организации. Наши специалисты помогут подобрать
-                            оптимальные решения под ваши задачи и бюджет.
-                            <br />
-                            <br />
-                            Выгодные тарифы и прозрачные условия сотрудничества. Уже на
-                            стадии подготовки коммерческого предложения по IT
-                            обслуживанию, мы максимально подробно описываем
-                            предоставляемые услуги. Стоимость наших услуг средняя, а порой
-                            и ниже по рынку IT услуг Узбекистана. С нашими базовыми
-                            тарифами на IT аутсорсинг можно ознакомится на этой странице
-                            прокрутив ниже.
+                            <?= nl2br(get_field('choose_us_description')) ?>
                         </p>
                     </div>
 
                     <div class="partner-content">
                         <div class="partner-content-header">
-                            <p>Сотрудничество</p>
-                            <h6>Процесс сотрудничества</h6>
+                            <p><?= the_field('cooperation_header'); ?></p>
+                            <h6><?= the_field('cooperation_description'); ?></h6>
                             <h5 class="partner-desc-header">
-                                Для Вашего удобства мы упростили процесс заказа IT <br />
-                                обслуживания
+                                <?= nl2br(get_field('cooperation_description_2')) ?>
                             </h5>
                         </div>
 
                         <div class="partner-content-body">
+                            <?php if (have_rows('partner_steps')): ?>
+                                <ul>
+                                    <?php while (have_rows('partner_steps')):
+                                        the_row(); ?>
+                                        <li>
+                                            <?= wp_kses_post(get_sub_field('text')); ?>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- <div class="partner-content-body">
                             <ul>
                                 <li>
                                     Пришлите запрос или свяжитесь с нашим менеджером по
@@ -271,7 +196,7 @@ get_header();
                                     месяц обслуживания.
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="extra-info-wrapper">
