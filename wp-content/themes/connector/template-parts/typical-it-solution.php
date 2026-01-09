@@ -10,22 +10,20 @@ get_header();
         <div class="container">
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
-                    <h6>Решения</h6>
-                    <h1>Типовые IT решения</h1>
+                    <h6><?= the_field('type_header'); ?></h6>
+                    <h1><?= the_field('type_description'); ?></h1>
                     <p>
-                        Explore our IT services: innovative solutions, cutting-edge
-                        technology, and expert support to transform your business
-                        digitally.
+                        <?= the_field('type_description_2'); ?>
                     </p>
-                    <p class="breadcrumbs">
-                        Главная / Услуги /
-                        <span>Типовые IT решения</span>
-                    </p>
+                    <?php custom_breadcrumbs(); ?>
                 </div>
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri() ?> /assets/images/typical-it-solution/banner.png" alt="image" />
+                        <?php
+                        $type_banner = get_field('banner');
+                        ?>
+                        <img src="<?= esc_url($type_banner['url']) ?>" alt="<?= esc_attr($type_banner['alt']) ?>" />
                     </div>
 
                     <div class="banner-description-wrapper">
@@ -54,7 +52,8 @@ get_header();
                     <div class="col-12 col-lg-6 p-2">
                         <div class="card-item">
                             <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-1.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-1.png"
+                                    alt="image" />
                             </div>
                             <div class="card-content">
                                 <div class="card-top-wrapper">
@@ -69,7 +68,8 @@ get_header();
                                 <div class="card-bottom-wrapper">
                                     <a href="#">
                                         Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -78,7 +78,8 @@ get_header();
                     <div class="col-12 col-lg-6 p-2">
                         <div class="card-item">
                             <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-2.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-2.png"
+                                    alt="image" />
                             </div>
                             <div class="card-content">
                                 <div class="card-top-wrapper">
@@ -93,7 +94,8 @@ get_header();
                                 <div class="card-bottom-wrapper">
                                     <a href="#">
                                         Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -102,7 +104,8 @@ get_header();
                     <div class="col-12 col-lg-6 p-2">
                         <div class="card-item">
                             <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-3.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-3.png"
+                                    alt="image" />
                             </div>
                             <div class="card-content">
                                 <div class="card-top-wrapper">
@@ -117,7 +120,8 @@ get_header();
                                 <div class="card-bottom-wrapper">
                                     <a href="#">
                                         Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
@@ -126,7 +130,8 @@ get_header();
                     <div class="col-12 col-lg-6 p-2">
                         <div class="card-item">
                             <div class="card-image">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-4.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/card-4.png"
+                                    alt="image" />
                             </div>
                             <div class="card-content">
                                 <div class="card-top-wrapper">
@@ -141,7 +146,8 @@ get_header();
                                 <div class="card-bottom-wrapper">
                                     <a href="#">
                                         Узнать больше
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                            alt="image" />
                                     </a>
                                 </div>
                             </div>
