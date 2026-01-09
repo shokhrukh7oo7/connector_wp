@@ -145,41 +145,25 @@ get_header();
                 <div class="partner-swiper-wrapper">
                     <!-- Slider main container -->
                     <div class="swiper-container-solving-partner">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/p-1.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/p-2.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/p-3.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/p-4.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/p-5.png"
-                                    alt="image" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/solving-it-problems/p-6.png"
-                                    alt="image" />
+                            <?php if (have_rows('partner_swiper')): ?>
+                                <?php while (have_rows('partner_swiper')):
+                                    the_row(); ?>
+                                    <div class="swiper-slide">
+                                        <img src="<?= esc_url(get_sub_field('slider_image')['url']) ?>"
+                                            alt="<?= esc_attr(get_sub_field('slider_image')['alt']); ?>" />
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-nav">
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                     <div    class="swiper-nav">
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
 </main>
