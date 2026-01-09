@@ -2550,6 +2550,11 @@ p {
   padding: 5px 10px;
   margin: 0;
 }
+.it-service-wrapper .banner-content-wrapper .banner-description-wrapper div {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black-color);
+}
 .it-service-wrapper .it-service-header-wrapper h1 {
   color: var(--black-color);
   font-weight: 700;

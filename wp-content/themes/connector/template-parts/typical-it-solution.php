@@ -27,18 +27,7 @@ get_header();
                     </div>
 
                     <div class="banner-description-wrapper">
-                        <p>
-                            Click edit button to change this text. Lorem ipsum dolor sit
-                            amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                            ullamcorper mattis, pulvinar dapibus leo. <br />
-                            <br />
-                            Click edit button to change this text. Lorem ipsum dolor sit
-                            amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                            ullamcorper mattis, pulvinar dapibus leo.Click edit button to
-                            change this text. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Ut elit tellus, luctus nec ullamcorper
-                            mattis, pulvinar dapibus leo.
-                        </p>
+                        <?= the_content(); ?>
                     </div>
                 </div>
             </div>
