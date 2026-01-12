@@ -10,202 +10,88 @@ get_header();
         <div class="container">
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
-                    <h6>Услуги</h6>
-                    <h1>Инсталляция и настройка ПО</h1>
+                    <h6><?= the_field('installation_header'); ?></h6>
+                    <h1><?= the_field('installation_description'); ?></h1>
                     <p>
-                        Команда IT специалистов #connector предлагает услуги по
-                        установке (инсталляции) и настройке программного обеспечения для
-                        организаций
+                        <?= nl2br(the_field('installation_description_2')); ?>
                     </p>
-                    <p class="breadcrumbs">
-                        Главная / Услуги / <span>Инсталляция и настройка ПО</span>
-                    </p>
+                    <?php custom_breadcrumbs(); ?>
                 </div>
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/installation-and-settings/banner.png"
-                            alt="image" />
+                        <?php
+                        $installation_banner = get_field('installation_banner');
+                        ?>
+                        <img src="<?= esc_url($installation_banner['url']) ?>"
+                            alt="<?= esc_attr($installation_banner['alt']) ?>" />
                     </div>
 
                     <div class="banner-description-wrapper">
-                        <p>
-                            Для этих работ у нас есть IT отдел (IT блок) (см. Структура
-                            компании), который выполняет полный спектр работ по установке
-                            и настройке программного обеспечения на серверах, персональных
-                            компьютерах, сетевом оборудовании, системах хранения данных,
-                            видеорегистраторах/видеосерверах и другом IT оборудовании.
-                            <br />
-                            <br />
-                            Мы осуществляем деятельность на IT рынке Узбекистана с 2009
-                            года. За период работы реализованы проекты по установке и
-                            настройке программного обеспечения для почти сотни
-                            организаций, представляющих различные отрасли. В процессе
-                            накоплен значительный профессиональный опыт, что позволяет
-                            выполнять работы по инсталляции и конфигурированию программных
-                            решений на высоком уровне качества.
-                        </p>
+                        <?= nl2br(get_field('installation_banner_description')); ?>
                     </div>
 
                     <div class="inst-left-right-wrapper">
                         <div class="left-wrapper">
                             <h3>
-                                Где применяются услуги по инсталляции и <br />
-                                настройке программного обеспечения?
+                                <?= nl2br(get_field('installation_left_list_header')); ?>
                             </h3>
 
-                            <ul>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Корпоративные офисы и частные организации</span>
-                                        <br />
-                                        Установка и настройка программ, необходимых для работы
-                                        сотрудников: офисные пакеты, бухгалтерские приложения,
-                                        CRM-системы, системы документооборота и пр. Организация
-                                        защищённой работы с корпоративной информацией и
-                                        настройка коллективного доступа.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Производственные и промышленные предприятия</span>
-                                        <br />
-                                        Установка специализированного ПО для автоматизации
-                                        производственных процессов, управления складами, учёта
-                                        материалов, промышленной безопасности.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Государственные учреждения</span> <br />
-                                        Настройка лицензионных офисных, специализированных и
-                                        защитных программных продуктов в соответствии с
-                                        государственными требованиями и стандартами.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Образовательные организации</span> <br />
-                                        Развёртывание учебных платформ, антиплагиатных,
-                                        лингвистических, технических и других обучающих
-                                        программ.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Медицинские учреждения</span> <br />
-                                        Инсталляция и настройка специализированных медицинских
-                                        информационных систем, лабораторного и диагностического
-                                        ПО, систем управления пациентами.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>IT инфраструктуры любого масштаба</span> <br />
-                                        Настройка серверных решений, сетевого оборудования,
-                                        систем резервного копирования, доменной структуры,
-                                        почтовых серверов, систем IT безопасности, приложений
-                                        для совместной работы и удаленного доступа.
-                                    </div>
-                                </li>
-                            </ul>
+                            <?php if (have_rows('installation_left_list')): ?>
+                                <ul>
+                                    <?php while (have_rows('installation_left_list')):
+                                        the_row(); ?>
+                                        <?php
+                                        $icon = get_sub_field('icon');
+                                        $header = get_sub_field('header');
+                                        $description = get_sub_field('installation_left_list_text');
+                                        ?>
+                                        <li>
+                                            <img src="<?= esc_url($icon['url']) ?>" alt="<?= esc_attr($icon['alt']) ?>">
+                                            <div>
+                                                <span>
+                                                    <?= esc_html($header) ?>
+                                                </span><br>
+                                                <?= esc_html($description) ?>
+                                            </div>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
 
                         <div class="right-wrapper">
                             <h3>
-                                Для чего необходимы <br />
-                                эти работы?
+                                <?= nl2br(get_field('installation_right_list_header')); ?>
                             </h3>
-                            <ul>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Быстрый запуск и бесперебойная работа ПО</span>
-                                        <br />
-                                        Гарантия корректной установки программ с минимальными
-                                        рисками конфликтов, ошибок и сбоев. Используем уже
-                                        проверенные дистрибутивы ПО. Знаем особенности настроек.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Повышение безопасности</span> <br />
-                                        Настройка прав доступа, обновлений, резервного
-                                        копирования данных и антивирусной защиты исключает
-                                        несанкционированный доступ и атаки, а так же помогает
-                                        сохранить данные.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Оптимизация работы сотрудников</span> <br />
-                                        Гибкая настройка под задачи конкретного бизнеса
-                                        позволяет повысить производительность и упростить
-                                        ежедневные рабочие процессы.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Минимизация простоев</span> <br />
-                                        Профессиональная инсталляция и первичная настройка
-                                        сокращают срок адаптации и устраняют вероятность долгих
-                                        неработающих участков системы.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Медицинские учреждения</span> <br />
-                                        Инсталляция и настройка специализированных медицинских
-                                        информационных систем, лабораторного и диагностического
-                                        ПО, систем управления пациентами.
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    <div>
-                                        <span>Соответствие законодательным и корпоративным
-                                            стандартам</span>
-                                        <br />
-                                        Установка легального ПО, настройка платформ в
-                                        соответствии с требованиями информационной безопасности
-                                        и внутренними регламентами компании.
-                                    </div>
-                                </li>
-                            </ul>
+
+                            <?php if (have_rows('installation_right_list')): ?>
+                                <ul>
+                                    <?php while (have_rows('installation_right_list')):
+                                        the_row(); ?>
+                                        <?php
+                                        $icon = get_sub_field('icon');
+                                        $header = get_sub_field('header');
+                                        $description = get_sub_field('installation_right_list_text');
+                                        ?>
+                                        <li>
+                                            <img src="<?= esc_url($icon['url']) ?>" alt="<?= esc_attr($icon['alt']) ?>">
+                                            <div>
+                                                <span>
+                                                    <?= esc_html($header) ?>
+                                                </span><br>
+                                                <?= esc_html($description) ?>
+                                            </div>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
                     </div>
 
                     <div class="inst-extra-wrapper">
                         <p>
-                            Мы осуществляем установку программного обеспечения различных
-                            категорий: лицензионного, бесплатного (Open Source),
-                            условно-бесплатного (Shareware) и демонстрационных версий.
-                            Лицензионные права на устанавливаемое программное обеспечение
-                            обычно предоставляются заказчиком. При необходимости заказчик
-                            может приобрести лицензионное программное обеспечение через
-                            нашу компанию.
+                            <?= nl2br(get_field('description_under_list')); ?>
                         </p>
                         <div class="extra-banner-wrapper">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/installation-and-settings/extra-banner.png"
