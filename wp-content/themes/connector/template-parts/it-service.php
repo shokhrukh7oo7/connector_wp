@@ -166,235 +166,67 @@ get_header();
             <div class="container">
                 <div class="tariffs-wrapper">
                     <div class="tariffs-header-wrapper">
-                        <a href="#">Тарифы</a>
-                        <h3>Базовые тарифы на IT обслуживание</h3>
+                        <h1><?= the_field('tariffs_header'); ?></h1>
+                        <h3><?= the_field('tariffs_description'); ?></h3>
                         <p>
-                            Как правило, стоимость IT обслуживания всегда индивидуальная.
-                            Однако для ориентира мы приводим наши базовые тарифы. Заказчик
-                            всегда может оценить выгоду и спланировать бюджет на IT
-                            обслуживание.
+                            <?= nl2br(get_field('tariffs_description_2')); ?>
                         </p>
                     </div>
                     <div class="tariffs-card-wrapper">
                         <div class="row m-0">
-                            <div class="col-12 col-md-6 col-lg-4 p-2">
-                                <div class="tariffs-item-wrapper">
-                                    <h5>Тариф №1</h5>
-                                    <h3>от 3 млн.сум / мес</h3>
-                                    <ul>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 5 ПК или ноутбуков
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 2 принтеров или МФУ
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Неограниченное количество заправок принтеров
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            2-3 плановых выезда в месяц
-                                        </li>
-                                    </ul>
-                                    <a href="#">
-                                        Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                            <?php
+                            $tariffs = new WP_Query(array(
+                                'post_type' => 'tariff',
+                                'posts_per_page' => -1,
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC',
+                            ));
 
-                            <div class="col-12 col-md-6 col-lg-4 p-2">
-                                <div class="tariffs-item-wrapper">
-                                    <h5>Тариф №2</h5>
-                                    <h3>от 5 млн.сум / мес</h3>
-                                    <ul>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 12 ПК или ноутбуков
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 4 принтеров или МФУ
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Неограниченное количество заправок принтеров
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            3-5 плановых выезда в месяц
-                                        </li>
-                                    </ul>
-                                    <a href="#">
-                                        Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                            if ($tariffs->have_posts()):
+                                while ($tariffs->have_posts()):
+                                    $tariffs->the_post();
 
-                            <div class="col-12 col-md-6 col-lg-4 p-2">
-                                <div class="tariffs-item-wrapper">
-                                    <h5>Тариф №3</h5>
-                                    <h3>от 7 млн.сум / мес</h3>
-                                    <ul>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 20 ПК или ноутбуков
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 6 принтеров или МФУ
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Неограниченное количество заправок принтеров
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Индивидуальный график выездов
-                                        </li>
-                                    </ul>
-                                    <a href="#">
-                                        Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                                    $price = get_field('price');
+                                    $features = get_field('features');
+                                    $btn_icon = get_field('btn_icon');
+                                    $btn_text = get_field('btn_text');
+                                    ?>
+                                    <div class="col-12 col-md-6 col-lg-4 p-2">
+                                        <div class="tariffs-item-wrapper">
 
-                            <div class="col-12 col-md-6 col-lg-4 p-2">
-                                <div class="tariffs-item-wrapper">
-                                    <h5>Тариф №4</h5>
-                                    <h3>от 7 млн.сум / мес</h3>
-                                    <ul>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 12 ПК или ноутбуков
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 2 принтеров или МФУ
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Неограниченное количество заправок принтеров
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            1 сервер
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            2-3 плановых выезда в месяц
-                                        </li>
-                                    </ul>
-                                    <a href="#">
-                                        Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                                            <h5><?= esc_html(get_the_title()) ?></h5>
+                                            <h3><?= esc_html($price) ?></h3>
 
-                            <div class="col-12 col-md-6 col-lg-4 p-2">
-                                <div class="tariffs-item-wrapper">
-                                    <h5>Тариф №5</h5>
-                                    <h3>от 9 млн.сум / мес</h3>
-                                    <ul>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 20 ПК или ноутбуков
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 4 принтеров или МФУ
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Неограниченное количество заправок принтеров
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 3 серверов
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            3-5 плановых выезда в месяц
-                                        </li>
-                                    </ul>
-                                    <a href="#">
-                                        Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                                            <?php if ($features): ?>
+                                                <ul>
+                                                    <?php foreach ($features as $item): ?>
+                                                        <li>
+                                                            <?php if (!empty($item['check_icon'])): ?>
+                                                                <img src="<?= esc_url($item['check_icon']['url']) ?>"
+                                                                    alt="<?= esc_attr($item['check_icon']['alt']) ?>">
+                                                            <?php endif; ?>
+                                                            <?= esc_html($item['feature_text']) ?>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            <?php endif; ?>
 
-                            <div class="col-12 col-md-6 col-lg-4 p-2">
-                                <div class="tariffs-item-wrapper">
-                                    <h5>Тариф №6</h5>
-                                    <h3>от 12 млн.сум / мес</h3>
-                                    <ul>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 50 ПК или ноутбуков
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 15 принтеров или МФУ
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Неограниченное количество заправок принтеров
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            До 10 серверов
-                                        </li>
-                                        <li>
-                                            <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                                alt="image" />
-                                            Индивидуальный график выездов
-                                        </li>
-                                    </ul>
-                                    <a href="#">
-                                        Получить консультацию
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                            alt="image" />
-                                    </a>
-                                </div>
-                            </div>
+                                            <?php if ($btn_text): ?>
+                                                <a href="#" target="_blank">
+                                                    <?= esc_html($btn_text) ?>
+                                                    <?php if ($btn_icon): ?>
+                                                        <img src="<?= esc_url($btn_icon['url']) ?>" alt="icon">
+                                                    <?php endif; ?>
+                                                </a>
+                                            <?php endif; ?>
+
+                                        </div>
+                                    </div>
+                                    <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
