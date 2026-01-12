@@ -94,8 +94,11 @@ get_header();
                             <?= nl2br(get_field('description_under_list')); ?>
                         </p>
                         <div class="extra-banner-wrapper">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/installation-and-settings/extra-banner.png"
-                                alt="image" />
+                            <?php
+                            $inatallation_extra_banner = get_field('description_under_list_banner');
+                            ?>
+                            <img src="<?= esc_url($inatallation_extra_banner['url']) ?>"
+                                alt="<?= esc_attr($inatallation_extra_banner['alt']) ?>" />
                         </div>
                     </div>
 
