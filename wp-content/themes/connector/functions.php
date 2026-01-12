@@ -285,6 +285,22 @@ if (function_exists('acf_add_options_page')) {
 	));
 }
 // ------------------------------------------------------------------------
+function register_it_services_post_type() {
+    register_post_type('it_service', [
+        'labels' => [
+            'name'          => 'IT обслуживание. Подразделы',
+            'singular_name' => 'IT обслуживание. Подразделы',
+        ],
+        'public'        => true,
+        'has_archive'   => false,
+        'menu_icon'     => 'dashicons-admin-tools',
+        'supports'      => ['title', 'editor', 'page-attributes'],
+        'show_in_rest'  => true,
+    ]);
+}
+add_action('init', 'register_it_services_post_type');
+
+// ------------------------------------------------------------------------
 class Header_Menu_Walker extends Walker_Nav_Menu
 {
 
