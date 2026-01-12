@@ -423,411 +423,75 @@ get_header();
             <div class="container">
                 <div class="directions-wrapper">
                     <div class="directions-header-wrapper">
-                        <a href="#">IT обслуживание. Подразделы</a>
-                        <h3>Наш опыт - залог Вашего успеха!</h3>
+                        <h1><?= the_field('subsections_header'); ?></h1>
+                        <h3><?= the_field('subsections_description'); ?></h3>
                         <p>
-                            Нам доверяют десятки организаций в Узбекистане, выбирая нас
-                            своим надежным партнером по IT обслуживанию. Ознакомиться с
-                            отзывами наших клиентов можно здесь.
+                            <?= nl2br(get_field('subsections_description_2')); ?>
                         </p>
                     </div>
 
-                    <div class="directions-content-wrapper">
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-1.svg"
-                                        alt="image" />
+                    <?php
+                    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+                    $services = new WP_Query([
+                        'post_type' => 'it_service',
+                        'posts_per_page' => 20,
+                        'paged' => $paged,
+                        'orderby' => 'menu_order',
+                        'order' => 'ASC',
+                    ]);
+                    ?>
+
+                    <?php if ($services->have_posts()): ?>
+                        <div class="directions-content-wrapper">
+
+                            <?php while ($services->have_posts()):
+                                $services->the_post();
+                                $icon = get_field('icon');
+                                $btn_text = get_field('btn_text');
+                                $btn_icon = get_field('btn_icon');
+                                ?>
+
+                                <div class="item">
+                                    <div class="item-content">
+
+                                        <?php if ($icon): ?>
+                                            <div class="icon-wrapper">
+                                                <img src="<?= esc_url($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>">
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <h6>
+                                            <?= esc_html(get_the_title()); ?>
+                                        </h6>
+
+                                        <?= the_content(); ?>
+
+                                    </div>
+
+                                    <div class="btn-wrapper">
+                                        <a href="<?= esc_url(get_permalink()); ?>">
+                                            <?= esc_html($btn_text); ?>
+                                        </a>
+                                        <img src="<?= esc_url($btn_icon['url']) ?>" alt="<?= esc_attr($btn_icon['alt']) ?>">
+                                    </div>
                                 </div>
-                                <h6>IT аудит</h6>
-                                <p>
-                                    IT аудит оценивает технологии в компании, выявляет
-                                    уязвимости и оптимизирует процессы, помогая
-                                    соответствовать законодательству и снижать риски.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
+                            <?php endwhile; ?>
                         </div>
 
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-2.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Подписание NDA</h6>
-                                <p>
-                                    Соглашение о неразглашении (NDA) — это юридический
-                                    документ, который защищает конфиденциальную информацию
-                                    между сторонами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
+                        <div class="pagination-wrapper">
+                            <?php
+                            echo paginate_links([
+                                'total' => $services->max_num_pages,
+                                'current' => $paged,
+                                'prev_text' => '←',
+                                'next_text' => '→',
+                            ]);
+                            ?>
                         </div>
 
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-3.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Система контроля заявок</h6>
-                                <p>
-                                    Система контроля заявок обеспечивает надежный и
-                                    эффективный процесс управления запросами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-4.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Об IT аутсорсинге</h6>
-                                <p>
-                                    IT аутсорсинг — это стратегический подход, позволяющий
-                                    компаниям сосредоточиться на своих ключевых задачах,
-                                    передавая управление IT-услугами профессионалам.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-1.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>IT аудит</h6>
-                                <p>
-                                    IT аудит оценивает технологии в компании, выявляет
-                                    уязвимости и оптимизирует процессы, помогая
-                                    соответствовать законодательству и снижать риски.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-2.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Подписание NDA</h6>
-                                <p>
-                                    Соглашение о неразглашении (NDA) — это юридический
-                                    документ, который защищает конфиденциальную информацию
-                                    между сторонами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-3.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Система контроля заявок</h6>
-                                <p>
-                                    Система контроля заявок обеспечивает надежный и
-                                    эффективный процесс управления запросами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-4.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Об IT аутсорсинге</h6>
-                                <p>
-                                    IT аутсорсинг — это стратегический подход, позволяющий
-                                    компаниям сосредоточиться на своих ключевых задачах,
-                                    передавая управление IT-услугами профессионалам.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-1.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>IT аудит</h6>
-                                <p>
-                                    IT аудит оценивает технологии в компании, выявляет
-                                    уязвимости и оптимизирует процессы, помогая
-                                    соответствовать законодательству и снижать риски.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-2.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Подписание NDA</h6>
-                                <p>
-                                    Соглашение о неразглашении (NDA) — это юридический
-                                    документ, который защищает конфиденциальную информацию
-                                    между сторонами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-3.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Система контроля заявок</h6>
-                                <p>
-                                    Система контроля заявок обеспечивает надежный и
-                                    эффективный процесс управления запросами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-4.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Об IT аутсорсинге</h6>
-                                <p>
-                                    IT аутсорсинг — это стратегический подход, позволяющий
-                                    компаниям сосредоточиться на своих ключевых задачах,
-                                    передавая управление IT-услугами профессионалам.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-1.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>IT аудит</h6>
-                                <p>
-                                    IT аудит оценивает технологии в компании, выявляет
-                                    уязвимости и оптимизирует процессы, помогая
-                                    соответствовать законодательству и снижать риски.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-2.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Подписание NDA</h6>
-                                <p>
-                                    Соглашение о неразглашении (NDA) — это юридический
-                                    документ, который защищает конфиденциальную информацию
-                                    между сторонами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-3.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Система контроля заявок</h6>
-                                <p>
-                                    Система контроля заявок обеспечивает надежный и
-                                    эффективный процесс управления запросами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-4.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Об IT аутсорсинге</h6>
-                                <p>
-                                    IT аутсорсинг — это стратегический подход, позволяющий
-                                    компаниям сосредоточиться на своих ключевых задачах,
-                                    передавая управление IT-услугами профессионалам.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-1.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>IT аудит</h6>
-                                <p>
-                                    IT аудит оценивает технологии в компании, выявляет
-                                    уязвимости и оптимизирует процессы, помогая
-                                    соответствовать законодательству и снижать риски.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-2.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Подписание NDA</h6>
-                                <p>
-                                    Соглашение о неразглашении (NDA) — это юридический
-                                    документ, который защищает конфиденциальную информацию
-                                    между сторонами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-3.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Система контроля заявок</h6>
-                                <p>
-                                    Система контроля заявок обеспечивает надежный и
-                                    эффективный процесс управления запросами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/it-service/t-4.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>Об IT аутсорсинге</h6>
-                                <p>
-                                    IT аутсорсинг — это стратегический подход, позволяющий
-                                    компаниям сосредоточиться на своих ключевых задачах,
-                                    передавая управление IT-услугами профессионалам.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
-                    </div>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
