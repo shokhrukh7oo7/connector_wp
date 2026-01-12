@@ -106,23 +106,24 @@ get_header();
                   <?php endwhile; ?>
                 </ul>
               <?php endif; ?>
-              </div>
+            </div>
           </div>
- 
-            <d iv class="it-system-extra-wrapper-banner">
-              <img src="<?= get_template_directory_uri() ?> /assets/images/it-system-design/banner-2.png" alt="image" />
+
+          <d iv class="it-system-extra-wrapper-banner">
+            <?php
+            $cooperation_image = get_field('cooperation_banner');
+            ?>
+            <img src="<?= esc_url($cooperation_image['url']) ?>" alt="<?= esc_attr($cooperation_image['alt']) ?>" />
           </d>
-  
-          <d  iv class="it-system-extra-wrapper-two">
-              <h5>Сколько стоит ПСД?</h5>
-             <p >
-                Стоимость ПСД в каждом случае индивидуальная. Зависит от
-                трудозатрат и объема проекта. Ориентировочно стоимость ПСД
-                составляет от 4-10% от сметной стоимости проекта.
-              </p>
-            </d>
+
+          <div class="it-system-extra-wrapper-two">
+            <h5><?= the_field('cooperation_extra_header'); ?></h5>
+            <p>
+              <?= nl2br(get_field('cooperation_extra_description')); ?>
+            </p>
           </div>
         </div>
+      </div>
     </div>
   </section>
 
