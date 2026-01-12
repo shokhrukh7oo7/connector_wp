@@ -47,52 +47,31 @@ get_header();
           </div>
 
           <div class="it-system-left-right-wrapper">
-            <h3>Виды IT систем для проектирования</h3>
+            <h3><?= the_field('type_it_system_header'); ?></h3>
             <div class="left-right-wrapper">
               <div class="left-wrapper">
-                <ul>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Локальные вычислительные сети ЛВС/СКС/ВОЛС
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Системы видеонаблюдения и безопасности
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Охранно-пожарная сигнализация (ОПС)
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Серверные и дата-центры
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Wi-Fi системы для организаций и радиомосты
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Системы контроля доступа (СКУД) и турникеты
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Системы бесперебойного питания и солнечные панели
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Конференц-системы, мультимедийные комплексы
-                  </li>
-                  <li>
-                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                    Звукоусиление
-                  </li>
-                </ul>
+                <?php if (have_rows('type_list')): ?>
+                  <ul>
+                    <?php while (have_rows('type_list')):
+                      the_row(); ?>
+                      <?php
+                      $icon = get_sub_field('icon');
+                      $description = get_sub_field('text');
+                      ?>
+                      <li>
+                        <img src="<?= esc_url($icon['url']) ?>" alt="<?= esc_attr($icon['alt']) ?>">
+                        <?= esc_html($description) ?>
+                      </li>
+                    <?php endwhile; ?>
+                  </ul>
+                <?php endif; ?>
               </div>
 
               <div class="right-wrapper">
-                <img src="<?= get_template_directory_uri() ?> /assets/images/it-system-design/type-banner.png"
-                  alt="image" />
+                <?php
+                $type_image = get_field('type_it_system_banner');
+                ?>
+                <img src="<?= esc_url($type_image['url']) ?>" alt="<?= esc_attr($type_image['alt']) ?>" />
               </div>
             </div>
           </div>
