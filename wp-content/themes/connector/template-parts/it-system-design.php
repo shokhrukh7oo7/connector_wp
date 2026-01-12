@@ -132,135 +132,43 @@ get_header();
       <div class="container">
         <div class="directions-wrapper">
           <div class="directions-header-wrapper">
-            <a href="#">IT обслуживание. Подразделы</a>
-            <h3>Наш опыт - залог Вашего успеха!</h3>
+            <h1><?= the_field('subsections_header'); ?></h1>
+            <h3><?= the_field('subsections_description'); ?></h3>
             <p>
-              Нам доверяют десятки организаций в Узбекистане, выбирая нас
-              своим надежным партнером по IT обслуживанию. Ознакомиться с
-              отзывами наших клиентов можно здесь.
+              <?= nl2br(get_field('subsections_description_2')); ?>
             </p>
           </div>
 
           <div class="directions-content-wrapper">
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>
-                  Глубокий опыт <br />
-                  и экспертиза
-                </h6>
-                <p>
-                  Мы разрабатываем проектную документацию с учетом всех
-                  нюансов будущего монтажа и дальнейшей эксплуатации
-                  IT-систем с 2009 года, опираясь на опыт реализации
-                  десятков сложных проектов.
-                </p>
-              </div>
-            </div>
+            <?php if (have_rows('directions_items')): ?>
+              <?php while (have_rows('directions_items')):
+                the_row(); ?>
+                <?php
+                $icon = get_sub_field('icon');
+                $title = get_sub_field('title');
+                $description = get_sub_field('description');
+                ?>
+                <div class="item">
+                  <div class="item-content">
 
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>Максимальная практичность решений</h6>
-                <p>
-                  Наши проекты реально исполнимы. Монтажники получают
-                  понятные и четкие инструкции, благодаря чему исключаются
-                  несостыковки и ошибки на этапе монтажа.
-                </p>
-              </div>
-            </div>
+                    <?php if ($icon): ?>
+                      <div class="icon-wrapper">
+                        <img src="<?= esc_url($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>" />
+                      </div>
+                    <?php endif; ?>
 
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>Прозрачность расчетов и отсутствие лишних затрат</h6>
-                <p>
-                  Вся смета составляется на основе детального анализа
-                  проекта, текущего состояния рынка и норм ШНК РУз, что
-                  позволяет максимально точно определить объемы работ и
-                  исключить ненужные расходы.
-                </p>
-              </div>
-            </div>
+                    <?php if ($title): ?>
+                      <h6><?= wp_kses_post($title); ?></h6>
+                    <?php endif; ?>
 
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>Персонализация и учет специфики Заказчика</h6>
-                <p>
-                  Каждый проект индивидуален — мы учитываем отраслевые
-                  особенности, требования по безопасности, бюджет и задачи
-                  Заказчика.
-                </p>
-              </div>
-            </div>
-            <!--  -->
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>Соблюдение всех норм и стандартов</h6>
-                <p>
-                  Проектная документация соответствует действующим
-                  требованиям законодательства и стандартам проектирования в
-                  Узбекистане, что облегчает согласование и прохождение
-                  экспертизы.
-                </p>
-              </div>
-            </div>
+                    <?php if ($description): ?>
+                      <p><?= wp_kses_post($description); ?></p>
+                    <?php endif; ?>
 
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
+                  </div>
                 </div>
-                <h6>
-                  Интеграция <br />
-                  “под ключ”
-                </h6>
-                <p>
-                  Оказываем поддержку на всех этапах — от изысканий и
-                  проектирования до монтажа и последующего обслуживания
-                  IT-системы.
-                </p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>Техническая поддержка и сопровождение</h6>
-                <p>
-                  Консультируем на любом этапе реализации проекта, а также
-                  обеспечиваем оперативное внесение изменений по мере
-                  необходимости.
-                </p>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="item-content">
-                <div class="icon-wrapper">
-                  <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg" alt="image" />
-                </div>
-                <h6>Конфиденциальность и надежность</h6>
-                <p>
-                  Гарантируем защиту ваших данных и соблюдение коммерческой
-                  тайны..
-                </p>
-              </div>
-            </div>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
