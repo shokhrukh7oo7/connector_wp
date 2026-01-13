@@ -10,20 +10,18 @@ get_header();
         <div class="container">
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
-                    <h6>Услуги</h6>
-                    <h1>Поставка IT товаров</h1>
+                    <h6><?= the_field('it_product_header'); ?></h6>
+                    <h1><?= the_field('it_product_description'); ?></h1>
                     <p>
-                        Команда IT специалистов #connector с 2009 года занимается
-                        техническим обслуживанием организаций в Ташкенте, Узбекистане
+                        <?= the_field('it_product_description_2'); ?>
                     </p>
-                    <p class="breadcrumbs">
-                        Главная / Услуги / <span>Поставка IT товаров</span>
-                    </p>
+                    <?php custom_breadcrumbs(); ?>
                 </div>
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/banner.png" alt="image" />
+                        <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/banner.png"
+                            alt="image" />
                     </div>
 
                     <div class="banner-description-wrapper">
@@ -45,47 +43,57 @@ get_header();
                             <div class="left-wrapper">
                                 <ul>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Серверы и серверное оборудование
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Сетевое оборудование (маршрутизаторы, коммутаторы,
                                         сетевые экраны, точки доступа Wi-Fi)
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Персональные компьютеры и ноутбуки
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         МФУ, принтеры и другая офисная техника
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Источники питания и системы бесперебойного питания
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Системы хранения данных
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Периферийные устройства и аксессуары
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Оборудование для звукоусиления
                                     </li>
                                     <li>
-                                        <img src="<?= get_template_directory_uri()?> /assets/images/home/check-circle.svg" alt="image" />
+                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
+                                            alt="image" />
                                         Конференц-системы
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="right-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/type-banner.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/type-banner.png"
+                                    alt="image" />
                             </div>
                         </div>
                     </div>
@@ -130,7 +138,8 @@ get_header();
 
                     <div class="supply-extra-wrapper">
                         <div class="extra-banner-wrapper">
-                            <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/extra-banner.png" alt="image" />
+                            <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/extra-banner.png"
+                                alt="image" />
                         </div>
                     </div>
                 </div>
@@ -155,7 +164,8 @@ get_header();
                     <div class="product-container">
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-1.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-1.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -172,14 +182,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-2.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-2.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -193,14 +205,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-3.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-3.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -215,14 +229,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-4.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-4.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -236,14 +252,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-5.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-5.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -258,14 +276,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-6.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-6.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -278,14 +298,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-7.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-7.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -299,14 +321,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-8.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-8.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -318,14 +342,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-9.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-9.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -339,14 +365,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-10.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-10.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -360,14 +388,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-11.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-11.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -381,14 +411,16 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="left-wrapper">
-                                <img src="<?= get_template_directory_uri()?> /assets/images/supply-of-it-goods/p-12.png" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-12.png"
+                                    alt="image" />
                             </div>
                             <div class="right-wrapper">
                                 <div class="item-content">
@@ -402,7 +434,8 @@ get_header();
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="#">Узнать больше</a>
-                                    <img src="<?= get_template_directory_uri()?> /assets/images/home/arrow-up.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?> /assets/images/home/arrow-up.svg"
+                                        alt="image" />
                                 </div>
                             </div>
                         </div>
