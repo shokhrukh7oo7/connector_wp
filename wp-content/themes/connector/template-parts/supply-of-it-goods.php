@@ -107,12 +107,10 @@ get_header();
         <div class="container">
             <div class="product-wrapper">
                 <div class="product-header-wrapper">
-                    <h6>Наш опыт залог вашего успеха</h6>
-                    <h5>Основные разделы нашего сайта товаров</h5>
+                    <h6><?= the_field('experience_header'); ?></h6>
+                    <h5><?= the_field('experience_description'); ?></h5>
                     <p>
-                        Нам доверяют десятки организаций в Узбекистане, выбирая нас
-                        своим надежным поставщиком IT-оборудования. Ознакомиться с
-                        отзывами наших клиентов можно здесь.
+                        <?= nl2br(get_field('experience_description_2')); ?>
                     </p>
                 </div>
 
