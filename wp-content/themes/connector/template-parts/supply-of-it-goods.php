@@ -20,126 +20,82 @@ get_header();
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/banner.png"
-                            alt="image" />
+                        <?php
+                        $logo_image = get_field('banner');
+                        ?>
+                        <img src="<?= esc_url($logo_image['url']) ?>" alt="<?= esc_attr($logo_image['alt']) ?>" />
                     </div>
 
                     <div class="banner-description-wrapper">
                         <p>
-                            ООО «ZETRIX» является торговой фирмой входящей в состав группы
-                            компаний #connector.
-                            <br />
-                            <br />
-                            Мы предлагаем широкий ассортимент современной техники от
-                            ведущих производителей, обеспечивая каждому клиенту
-                            профессиональный подход, индивидуальный подбор и полный цикл
-                            технического сопровождения на всех этапах сотрудничества.
+                            <?= nl2br(get_field('banner_content')); ?>
                         </p>
                     </div>
 
                     <div class="supply-left-right-wrapper">
-                        <h3>Широкий ассортимент IT-продукции</h3>
+                        <h3><?= the_field('banner_content_header'); ?></h3>
                         <div class="left-right-wrapper">
                             <div class="left-wrapper">
-                                <ul>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Серверы и серверное оборудование
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Сетевое оборудование (маршрутизаторы, коммутаторы,
-                                        сетевые экраны, точки доступа Wi-Fi)
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Персональные компьютеры и ноутбуки
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        МФУ, принтеры и другая офисная техника
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Источники питания и системы бесперебойного питания
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Системы хранения данных
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Периферийные устройства и аксессуары
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Оборудование для звукоусиления
-                                    </li>
-                                    <li>
-                                        <img src="<?= get_template_directory_uri() ?> /assets/images/home/check-circle.svg"
-                                            alt="image" />
-                                        Конференц-системы
-                                    </li>
-                                </ul>
+                                <?php if (have_rows('assortment_list')): ?>
+                                    <ul>
+                                        <?php while (have_rows('assortment_list')):
+                                            the_row(); ?>
+                                            <?php
+                                            $icon = get_sub_field('icon');
+                                            $description = get_sub_field('text');
+                                            ?>
+                                            <li>
+                                                <img src="<?= esc_url($icon['url']) ?>" alt="<?= esc_attr($icon['alt']) ?>">
+                                                <?= esc_html($description) ?>
+                                            </li>
+                                        <?php endwhile; ?>
+                                    </ul>
+                                <?php endif; ?>
                             </div>
 
                             <div class="right-wrapper">
-                                <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/type-banner.png"
-                                    alt="image" />
+                                <?php
+                                $assortment_image = get_field('assortment_banner');
+                                ?>
+                                <img src="<?= esc_url($assortment_image['url']) ?>"
+                                    alt="<?= esc_attr($assortment_image['alt']) ?>" />
                             </div>
                         </div>
                     </div>
 
                     <div class="partner-content">
                         <div class="partner-content-header">
-                            <p>Процесс сотрудничества</p>
-                            <h6>Преимущества работы с нами</h6>
+                            <p><?= the_field('cooperation_header'); ?></p>
+                            <h6><?= the_field('cooperation_description'); ?></h6>
                             <h5 class="partner-desc-header">
-                                Для Вашего удобства мы упростили процесс заказа IT <br />
-                                обслуживания
+                                <?= nl2br(get_field('cooperation_description_2')); ?>
                             </h5>
                         </div>
 
                         <div class="partner-content-body supply-content-body">
-                            <ul>
-                                <li>
-                                    Пришлите заявку или свяжитесь с нашим менеджером по
-                                    телефону или Telegram +998 98 365-93-25
-                                </li>
-                                <li>
-                                    Получите консультацию и коммерческое предложение с
-                                    подбором подходящего оборудования.
-                                </li>
-                                <li>Согласуйте условия поставки и оплаты.</li>
-                                <li>
-                                    Получите договор для оплаты в электронном виде в Дидокс.
-                                </li>
-                                <li>
-                                    После оплаты можно забрать товар на условиях самовывоза в
-                                    центре Ташкента или доставкой товара в удобное для вас
-                                    время и место по договорённости.
-                                </li>
-                                <li>
-                                    Гарантируем техническую консультацию по купленной технике.
-                                    Возможна дальнейшая техническая поддержка и помощь на всех
-                                    этапах эксплуатации оборудования.
-                                </li>
-                            </ul>
+                            <?php if (have_rows('partner_steps')): ?>
+                                <ul>
+                                    <?php while (have_rows('partner_steps')):
+                                        the_row(); ?>
+                                        <?php
+                                        $text = get_sub_field('text');
+                                        ?>
+                                        <li>
+                                            <?= esc_html($text) ?>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
                     </div>
 
                     <div class="supply-extra-wrapper">
                         <div class="extra-banner-wrapper">
-                            <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/extra-banner.png"
-                                alt="image" />
+                            <?php
+                            $cooperation_banner = get_field('cooperation_banner');
+                            ?>
+                            <img src="<?= esc_url($cooperation_banner['url']) ?>"
+                                alt="<?= esc_attr($cooperation_banner['alt']) ?>" />
                         </div>
                     </div>
                 </div>
