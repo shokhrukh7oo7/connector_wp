@@ -20,32 +20,16 @@ get_header();
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/banner.png"
-                            alt="image" />
+                        <?php
+                        $lisence_banner = get_field('lisence_banner');
+                        ?>
+                        <img src="<?= esc_attr($lisence_banner['url']); ?>"
+                            alt="<?= esc_attr($lisence_banner['alt']); ?>" />
                     </div>
 
                     <div class="banner-description-wrapper">
                         <p>
-                            Команда IT специалистов #connector предлагает не только
-                            услуги, но и поставку лицензионного программного обеспечения
-                            для организаций
-                            <br />
-                            <br />
-                            Для этого мы создали специальный сайт www.zetrix.uz на котором
-                            предлагаем широкий ассортимент современной техники и
-                            лицензионного программного обеспечения от ведущих
-                            производителей.
-                            <br />
-                            <br />
-                            ООО «ZETRIX» является торговой фирмой входящей в состав группы
-                            компаний #connector.
-                            <br />
-                            <br />
-                            Мы предлагаем широкий ассортимент лицензионного программного
-                            обеспечения от ведущих мировых вендоров (производителей),
-                            обеспечивая каждому клиенту профессиональный подход,
-                            индивидуальный подбор и полный цикл технического сопровождения
-                            на всех этапах сотрудничества.
+                            <?= nl2br(get_field('lisence_banner_description')); ?>
                         </p>
                     </div>
                 </div>
@@ -58,75 +42,33 @@ get_header();
             <div class="container">
                 <div class="additional-section-content">
                     <h2>
-                        Широкий ассортимент лицензионного программного обеспечения
+                        <?= the_field('assortment_header'); ?>
+
                     </h2>
                     <div class="additional-top-wrapper">
                         <div class="additional-top-left-wrapper">
-                            <ul>
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Системное ПО для серверов
-                                </li>
 
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Лицензии для сетевого оборудования
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    ПО для рабочих станций (компьютеры, ноутбуки)
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Антивирусное ПО
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    ПО для IT безопасности
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Графическое ПО
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Специализированное ПО
-                                </li>
-
-                                <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                        alt="image" />
-                                    Программное обеспечение на заказ
-                                </li>
-                            </ul>
+                            <?php if (have_rows('assortment_list')): ?>
+                                <ul>
+                                    <?php while (have_rows('assortment_list')):
+                                        the_row(); ?>
+                                        <li>
+                                            <?php
+                                            $icon = get_sub_field('icon');
+                                            $text = get_sub_field('text');
+                                            ?>
+                                            <img src="<?= esc_attr($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>" />
+                                            <?= $text; ?>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
                     </div>
 
                     <div class="additional-bottom-wrapper">
                         <p>
-                            Мы реализуем исключительно лицензионное программное
-                            обеспечение, произведённое признанными мировыми лидерами в
-                            области информационных технологий. Являясь официальными
-                            партнёрами ведущих вендоров, мы осуществляем поставку
-                            лицензионного программного обеспечения по официальным
-                            легальным каналам дистрибуции. Такой подход гарантирует
-                            клиентам не только соответствие программных продуктов
-                            международным стандартам качества и безопасности, но и
-                            возможность получения полноценной технической поддержки как со
-                            стороны наших специалистов, так и непосредственно от
-                            производителей программного обеспечения
+                            <?= the_field('list_description'); ?>
                         </p>
                     </div>
                 </div>
@@ -139,17 +81,46 @@ get_header();
             <div class="container">
                 <div class="directions-wrapper">
                     <div class="directions-header-wrapper">
-                        <a href="#">Преимущества </a>
-                        <h3>Преимущества заказа проектной документации у нас</h3>
+                        <h1><?= the_field('advantages_header'); ?></h1>
+                        <h3><?= the_field('advantages_description'); ?></h3>
                         <p>
-                            Наша комплексная IT-поддержка для вашей сложной сетевой среды
-                            включает серверы, рабочие станции, смартфоны, копиры, сканеры
-                            и принтеры.
+                            <?= nl2br(get_field('advantages_description_2')); ?>
                         </p>
                     </div>
 
                     <div class="directions-content-wrapper">
-                        <div class="item">
+
+                        <?php if (have_rows('directions_items')): ?>
+                            <?php while (have_rows('directions_items')):
+                                the_row(); ?>
+                                <?php
+                                $icon = get_sub_field('icon');
+                                $title = get_sub_field('title');
+                                $description = get_sub_field('description');
+                                ?>
+                                <div class="item">
+                                    <div class="item-content">
+
+                                        <?php if ($icon): ?>
+                                            <div class="icon-wrapper">
+                                                <img src="<?= esc_url($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>" />
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if ($title): ?>
+                                            <h6><?= wp_kses_post($title); ?></h6>
+                                        <?php endif; ?>
+
+                                        <?php if ($description): ?>
+                                            <p><?= wp_kses_post($description); ?></p>
+                                        <?php endif; ?>
+
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+
+                        <!-- <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
                                     <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/1.svg"
@@ -206,7 +177,7 @@ get_header();
                                     Очень легко переключать языки.
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
