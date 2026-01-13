@@ -116,6 +116,51 @@ get_header();
 
                 <div class="product-item-wrapper">
                     <div class="product-container">
+
+                        <?php
+                        $products = new WP_Query([
+                            'post_type' => 'it_products',
+                            'posts_per_page' => -1,
+                        ]);
+
+                        if ($products->have_posts()):
+                            while ($products->have_posts()):
+                                $products->the_post();
+                                ?>
+                                <div class="item">
+                                    <div class="left-wrapper">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <?php the_post_thumbnail('medium'); ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="right-wrapper">
+                                        <div class="item-content">
+                                            <h6>
+                                                <?php the_title(); ?>
+                                            </h6>
+                                            <p>
+                                                <?php the_content(); ?>
+                                            </p>
+                                        </div>
+                                        <div class="btn-wrapper">
+                                            <a href="<?php the_permalink(); ?>">Узнать больше</a>
+                                            <img src="<?= get_template_directory_uri(); ?>/assets/images/home/arrow-up.svg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
+
+                    </div>
+                </div>
+
+
+                <!-- <div class="product-item-wrapper">
+                    <div class="product-container">
                         <div class="item">
                             <div class="left-wrapper">
                                 <img src="<?= get_template_directory_uri() ?> /assets/images/supply-of-it-goods/p-1.png"
@@ -394,7 +439,7 @@ get_header();
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

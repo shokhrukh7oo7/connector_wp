@@ -285,21 +285,43 @@ if (function_exists('acf_add_options_page')) {
 	));
 }
 // ------------------------------------------------------------------------
-function register_it_services_post_type() {
-    register_post_type('it_service', [
-        'labels' => [
-            'name'          => 'IT обслуживание. Подразделы',
-            'singular_name' => 'IT обслуживание. Подразделы',
-        ],
-        'public'        => true,
-        'has_archive'   => false,
-        'menu_icon'     => 'dashicons-admin-tools',
-        'supports'      => ['title', 'editor', 'page-attributes'],
-        'show_in_rest'  => true,
-    ]);
+function register_it_services_post_type()
+{
+	register_post_type('it_service', [
+		'labels' => [
+			'name' => 'IT обслуживание. Подразделы',
+			'singular_name' => 'IT обслуживание. Подразделы',
+		],
+		'public' => true,
+		'has_archive' => false,
+		'menu_icon' => 'dashicons-admin-tools',
+		'supports' => ['title', 'editor', 'page-attributes'],
+		'show_in_rest' => true,
+	]);
 }
 add_action('init', 'register_it_services_post_type');
 
+// ------------------------------------------------------------------------
+function register_it_products_cpt()
+{
+	register_post_type('it_products', [
+		'labels' => [
+			'name' => 'Товары',
+			'singular_name' => 'Товар',
+			'add_new' => 'Добавить товар',
+			'add_new_item' => 'Добавить товар',
+			'edit_item' => 'Редактировать товар',
+		],
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-products',
+		'supports' => ['title', 'editor', 'thumbnail'],
+		'rewrite' => [
+			'slug' => 'it-products'
+		],
+	]);
+}
+add_action('init', 'register_it_products_cpt');
 // ------------------------------------------------------------------------
 class Header_Menu_Walker extends Walker_Nav_Menu
 {
