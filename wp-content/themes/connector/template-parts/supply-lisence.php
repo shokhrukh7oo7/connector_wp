@@ -11,19 +11,17 @@ get_header();
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
                     <h6><?= the_field('lisence_header'); ?></h6>
-                    <h1>Поставка лицензионного ПО</h1>
+                    <h1><?= the_field('lisence_description'); ?></h1>
                     <p>
-                        Команда IT специалистов #connector с 2009 года занимается
-                        техническим обслуживанием организаций в Ташкенте, Узбекистане
+                        <?= nl2br(get_field('lisence_description_2')); ?>
                     </p>
-                    <p class="breadcrumbs">
-                        Главная / Услуги / <span>Поставка лицензионного ПО</span>
-                    </p>
+                    <?php custom_breadcrumbs(); ?>
                 </div>
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/banner.png" alt="image" />
+                        <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/banner.png"
+                            alt="image" />
                     </div>
 
                     <div class="banner-description-wrapper">
@@ -66,42 +64,50 @@ get_header();
                         <div class="additional-top-left-wrapper">
                             <ul>
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     Системное ПО для серверов
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     Лицензии для сетевого оборудования
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     ПО для рабочих станций (компьютеры, ноутбуки)
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     Антивирусное ПО
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     ПО для IT безопасности
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     Графическое ПО
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     Специализированное ПО
                                 </li>
 
                                 <li>
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                        alt="image" />
                                     Программное обеспечение на заказ
                                 </li>
                             </ul>
@@ -146,7 +152,8 @@ get_header();
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/1.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/1.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Свежий и чистый дизайн</h6>
                                 <p>
@@ -159,7 +166,8 @@ get_header();
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/2.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/2.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>
                                     Бесплатные обновления <br />
@@ -175,7 +183,8 @@ get_header();
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/3.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/3.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Бесплатный плагин</h6>
                                 <p>
@@ -188,7 +197,8 @@ get_header();
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/4.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/supply-lisence/4.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Многоязычная поддержка</h6>
                                 <p>
