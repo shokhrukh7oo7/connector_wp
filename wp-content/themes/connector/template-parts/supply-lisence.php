@@ -10,7 +10,7 @@ get_header();
         <div class="container">
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
-                    <h6>Услуги</h6>
+                    <h6><?= the_field('lisence_header'); ?></h6>
                     <h1>Поставка лицензионного ПО</h1>
                     <p>
                         Команда IT специалистов #connector с 2009 года занимается
