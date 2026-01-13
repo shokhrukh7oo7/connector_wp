@@ -10,7 +10,7 @@ get_header();
         <div class="container">
             <div class="it-service-wrapper">
                 <div class="it-service-header-wrapper">
-                    <h6>Услуги</h6>
+                    <h6><?= the_field('service_center_header'); ?></h6>
                     <h1>Сервисный центр</h1>
                     <p>
                         СЕРВИСНЫЙ ЦЕНТР по ремонту вычислительной и оргтехники для
@@ -23,7 +23,8 @@ get_header();
 
                 <div class="banner-content-wrapper">
                     <div class="banner-wrapper">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/service-center/banner.png" alt="image" />
+                        <img src="<?= get_template_directory_uri() ?>/assets/images/service-center/banner.png"
+                            alt="image" />
                     </div>
 
                     <div class="banner-description-wrapper">
@@ -71,31 +72,36 @@ get_header();
                     <div class="left-wrapper">
                         <ul>
                             <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                    alt="image" />
                                 Гарантия качества выполняемого ремонта профессиональными
                                 специалистами. Использование качественных запчастей для
                                 ремонта.
                             </li>
                             <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                    alt="image" />
                                 Профессиональные консультации до и после ремонтных работ.
                                 Наши специалисты помогут принять оптимальное решение о
                                 необходимости и способе ремонта в рамках Вашего бюджета.
                             </li>
                             <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                    alt="image" />
                                 Профессиональные консультации до и после ремонтных работ.
                                 Наши специалисты помогут принять оптимальное решение о
                                 необходимости и способе ремонта в рамках Вашего бюджета.
                             </li>
                             <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                    alt="image" />
                                 Техническое оснащение помещения сервисного центра.
                                 Специализированные ремонтные работы гораздо удобнее
                                 проводить в специально оборудованном помещении.
                             </li>
                             <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
+                                    alt="image" />
                                 Специальные условия. Для постоянных клиентов предусмотрены
                                 индивидуальные предложения и гибкая система скидок.
                             </li>
@@ -103,7 +109,8 @@ get_header();
                     </div>
 
                     <div class="right-wrapper">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/it-system-design/type-banner.png" alt="image" />
+                        <img src="<?= get_template_directory_uri() ?>/assets/images/it-system-design/type-banner.png"
+                            alt="image" />
                     </div>
                 </div>
             </div>
@@ -209,7 +216,8 @@ get_header();
     <section>
         <div class="container">
             <div class="service-extra-banner">
-                <img src="<?= get_template_directory_uri() ?>/assets/images/service-center/extra-banner.png" alt="image" />
+                <img src="<?= get_template_directory_uri() ?>/assets/images/service-center/extra-banner.png"
+                    alt="image" />
             </div>
         </div>
     </section>
@@ -226,7 +234,8 @@ get_header();
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-1.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-1.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>
                                     Ремонт печатной <br />
@@ -240,14 +249,16 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-2.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-2.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>
                                     Ремонт <br />
@@ -261,14 +272,16 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="item-content">
                                 <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-3.svg" alt="image" />
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-3.svg"
+                                        alt="image" />
                                 </div>
                                 <h6>Ремонт ноутбуков</h6>
                                 <p>
@@ -278,7 +291,8 @@ get_header();
                             </div>
                             <div class="btn-wrapper">
                                 <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg" alt="image" />
+                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
+                                    alt="image" />
                             </div>
                         </div>
                     </div>
