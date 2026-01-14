@@ -40,38 +40,35 @@
               </ul>
             <?php endif; ?>
 
-            <!-- <ul>
-              <li>
-                Республика Узбекистан, г. Ташкент, 100011, ул. Навои 16А
-              </li>
-              <li>Моб.: +998 (98) 365-93-25</li>
-              <li>Режим работы: Пн-Пт с 9:00 до 18:00</li>
-              <li>
-                Для абонентов действует круглосуточная поддержка по телефону
-              </li>
-            </ul> -->
-
             <div class="phone-wrapper">
-              <h5>Телефоны для связи:</h5>
-              <a href="#">Тел/факс: +998 (71) 241-56-50</a>
-              <a href="#">Моб: +998 (98) 365-93-25</a>
+              <h5><?= the_field('footer_contact_header', 'options_' . pll_current_language()) ?></h5>
+              <a href="tel:<?php the_field('footer_phone_number_link', 'options_' . pll_current_language()); ?>">
+                <?= the_field('footer_phone_number_text', 'options_' . pll_current_language()) ?>
+              </a>
+              <a
+                href="tel:<?php the_field('footer_phone_number_link_extra_2', 'options_' . pll_current_language()); ?>">
+                <?= the_field('footer_phone_number_text_extra', 'options_' . pll_current_language()) ?>
+              </a>
             </div>
 
             <div class="social-wrapper">
-              <a href="#">Facebook</a>
-              <a href="№">Twitter / X</a>
-              <a href="№">Instagram</a>
-              <a href="№">Telegram</a>
+              <?php if (get_field('footer_social_media', 'options_' . pll_current_language())): ?>
+                <?php while (have_rows('footer_social_media', 'options_' . pll_current_language())):
+                  the_row();
+                  $link = get_sub_field('social_media_link', 'options_' . pll_current_language());
+                  $text = get_sub_field('footer_social_media_text', 'options_' . pll_current_language());
+                  ?>
+                  <a href="<?= esc_url($link); ?>"><?= esc_html($text); ?></a>
+                <?php endwhile; ?>
+              <?php endif; ?>
             </div>
 
             <div class="copyright-wrapper">
               <p>
-                © 2009-2025 #connector. Сайт содержит авторский контент.
-                Копирование запрещено. Все права защищены.
+                <?= the_field('copyright_text', 'options_' . pll_current_language()); ?>
               </p>
               <p>
-                Сайт разработал с любовью
-                <a href="https://webline.uz/">Webline</a>
+                <?= the_field('copyright_text_2', 'options_' . pll_current_language()); ?>
               </p>
             </div>
           </div>
@@ -79,7 +76,7 @@
 
         <div class="col-12 col-md-8 right-bg">
           <div class="footer-right-wrapper">
-            <h2>Наши услуги</h2>
+            <h2><?= the_field('footer_links_header', 'options_' . pll_current_language()); ?></h2>
 
             <div class="useful-links-wrapper">
               <ul>
