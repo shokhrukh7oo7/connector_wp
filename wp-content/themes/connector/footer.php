@@ -115,12 +115,10 @@
 
             <div class="mobile-copyright">
               <p>
-                © 2009-2025 #connector. Сайт содержит авторский контент.
-                Копирование запрещено. Все права защищены.
+                <?= the_field('copyright_text', 'options_' . pll_current_language()); ?>
               </p>
               <p>
-                Сайт разработал с любовью
-                <a href="https://webline.uz/">Webline</a>
+                <?= the_field('copyright_text_2', 'options_' . pll_current_language()); ?>
               </p>
             </div>
           </div>
