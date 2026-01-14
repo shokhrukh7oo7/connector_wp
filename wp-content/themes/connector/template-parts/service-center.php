@@ -40,50 +40,31 @@ get_header();
     <section class="service-center-wrapper">
         <div class="container">
             <div class="it-system-left-right-wrapper">
-                <h3>Преимущества работы с нами</h3>
+                <h3><?= the_field('service_center_list_header'); ?></h3>
                 <div class="left-right-wrapper">
                     <div class="left-wrapper">
-                        <ul>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                    alt="image" />
-                                Гарантия качества выполняемого ремонта профессиональными
-                                специалистами. Использование качественных запчастей для
-                                ремонта.
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                    alt="image" />
-                                Профессиональные консультации до и после ремонтных работ.
-                                Наши специалисты помогут принять оптимальное решение о
-                                необходимости и способе ремонта в рамках Вашего бюджета.
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                    alt="image" />
-                                Профессиональные консультации до и после ремонтных работ.
-                                Наши специалисты помогут принять оптимальное решение о
-                                необходимости и способе ремонта в рамках Вашего бюджета.
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                    alt="image" />
-                                Техническое оснащение помещения сервисного центра.
-                                Специализированные ремонтные работы гораздо удобнее
-                                проводить в специально оборудованном помещении.
-                            </li>
-                            <li>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/check-circle.svg"
-                                    alt="image" />
-                                Специальные условия. Для постоянных клиентов предусмотрены
-                                индивидуальные предложения и гибкая система скидок.
-                            </li>
-                        </ul>
+                        <?php if (have_rows('service_center_left_list')): ?>
+                            <ul>
+                                <?php while (have_rows('service_center_left_list')):
+                                    the_row(); ?>
+                                    <li>
+                                        <?php
+                                        $icon = get_sub_field('icon');
+                                        $text = get_sub_field('text');
+                                        ?>
+                                        <img src="<?= esc_attr($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>" />
+                                        <?= $text; ?>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
 
                     <div class="right-wrapper">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/it-system-design/type-banner.png"
-                            alt="image" />
+                        <?php
+                        $right_image = get_field('service_center_right_photo');
+                        ?>
+                        <img src="<?= esc_attr($right_image['url']); ?>" alt="<?= esc_attr($right_image['alt']); ?>" />
                     </div>
                 </div>
             </div>
