@@ -77,89 +77,24 @@ get_header();
                 <div class="banner-content-wrapper">
                     <div class="partner-content">
                         <div class="partner-content-header">
-                            <p>Сотрудничество</p>
-                            <h6>Процесс сотрудничества</h6>
+                            <p><?= the_field('cooperation_header'); ?></p>
+                            <h6><?= the_field('cooperation_description'); ?></h6>
                             <h5 class="partner-desc-header">
-                                Для Вашего удобства мы упростили процесс заказа IT <br />
-                                обслуживания
+                                <?= nl2br(get_field('cooperation_description_2')); ?>
                             </h5>
                         </div>
 
                         <div class="partner-content-body">
-                            <ul>
-                                <li>
-                                    Пришлите запрос или свяжитесь с нашим менеджером по
-                                    телефону или Telegram +998 98 365-93-25
-                                </li>
-                                <li>
-                                    Получите консультацию каким образом будут выполняться
-                                    данные работы. На этом этапе можно определить примерную
-                                    стоимость ежемесячной подписки на IT обслуживание.
-                                </li>
-                                <li>
-                                    Согласуйте необходимость выезда нашего IT специалиста на
-                                    осмотр объекта для точного определения объема работ.
-                                </li>
-                                <li>
-                                    Получите коммерческое предложение на работы по
-                                    ежемесячному IT обслуживанию.
-                                </li>
-                                <li>
-                                    После утверждения коммерческого предложения получите
-                                    договор для оплаты в электронном виде в Дидокс.
-                                </li>
-                                <li>Согласуйте необходимость подписания NDA.</li>
-                                <li>
-                                    После оплаты наши менеджеры готовы принимать заявки на
-                                    выполнение работ. Каждая заявка фиксируется в нашей CRM
-                                    системе. В базу данных заносится информация о том кто и
-                                    когда дал заявку, описание задачи и описание решения этой
-                                    задачи, имя специалиста ответственного за выполнения
-                                    заявки. Любая (разумная) заявка берется на контроль и
-                                    обязательно будет выполнена.
-                                </li>
-                                <li>
-                                    Согласуйте необходимость первичного IT аудита. Для
-                                    подробного описания текущей IT инфраструктуры. Данные
-                                    работы входят в стоимость ежемесячной абонентской платы
-                                    (подписки).
-                                </li>
-                                <li>
-                                    Согласуйте необходимость проведения инвентаризации вашего
-                                    IT оборудования. Инвентаризация позволит иметь подробный
-                                    список техники с характеристиками, что позволит определить
-                                    необходимую модернизацию в перспективе. Инвентаризация
-                                    обычно проходит в течении первого месяца обслуживания.
-                                    Данные работы входят в стоимость ежемесячной абонентской
-                                    платы (подписки).
-                                </li>
-                                <li>
-                                    Обычно со стороны Заказчика выделяется ответственный
-                                    менеджер, который дает заявки нашему менеджеру. Так же
-                                    возможно создание группы в Телеграм с добавлением
-                                    сотрудников Заказчика и Исполнителя, тогда заявки
-                                    принимаются прямо в этой группе.
-                                </li>
-                                <li>
-                                    После получения заявки наш менеджер назначает инженера или
-                                    IT специалиста для выполнения этой заявки. Сотрудники
-                                    нашего IT блока/отдела в течении часа (SLA) начинают
-                                    выполнение заявки путем выезда на объект Заказчика или
-                                    дистанционно через сеть Интернет. После выполнения заявки,
-                                    исполнитель фиксирует выполнение заявки в нашей CRM
-                                    системе. В результате формируется база выполненных заявок
-                                    по которой Заказчик всегда может затребовать отчет о
-                                    проделанной работе за любой период времени.
-                                </li>
-                                <li>
-                                    По окончанию каждого месяца обслуживания или 30 дневного
-                                    периода обслуживания (если договор был заключен не 1 числа
-                                    месяца) подписываются счет-фактура и акт выполненных работ
-                                    за этот период IT обслуживания в электронном виде в
-                                    Дидокс. Так же Заказчик делает предоплату за следующий
-                                    месяц обслуживания.
-                                </li>
-                            </ul>
+                            <?php if (have_rows('partner_steps')): ?>
+                                <ul>
+                                    <?php while (have_rows('partner_steps')):
+                                        the_row(); ?>
+                                        <li>
+                                            <?= get_sub_field('text'); ?>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -170,8 +105,10 @@ get_header();
     <section>
         <div class="container">
             <div class="service-extra-banner">
-                <img src="<?= get_template_directory_uri() ?>/assets/images/service-center/extra-banner.png"
-                    alt="image" />
+                <?php
+                $banner_photo = get_field('cooperation_banner');
+                ?>
+                <img src="<?= $banner_photo['url'] ?>" alt="<?= $banner_photo['alt'] ?>" />
             </div>
         </div>
     </section>
@@ -181,75 +118,57 @@ get_header();
             <div class="container">
                 <div class="directions-wrapper">
                     <div class="directions-header-wrapper">
-                        <h3>IT обслуживание. Подразделы</h3>
+                        <h3><?= the_field('subsections_header'); ?></h3>
                     </div>
 
-                    <div class="directions-content-wrapper">
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-1.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>
-                                    Ремонт печатной <br />
-                                    техники
-                                </h6>
-                                <p>
-                                    IT аудит оценивает технологии в компании, выявляет
-                                    уязвимости и оптимизирует процессы, помогая
-                                    соответствовать законодательству и снижать риски.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
+                    <?php
+                    $services = new WP_Query([
+                        'post_type' => 'service_center',
+                        'posts_per_page' => 4,
+                        'orderby' => 'menu_order',
+                        'order' => 'ASC',
+                    ]);
+                    ?>
 
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-2.svg"
-                                        alt="image" />
-                                </div>
-                                <h6>
-                                    Ремонт <br />
-                                    компьютеров
-                                </h6>
-                                <p>
-                                    Соглашение о неразглашении (NDA) — это юридический
-                                    документ, который защищает конфиденциальную информацию
-                                    между сторонами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
-                        </div>
+                    <?php if ($services->have_posts()): ?>
+                        <div class="directions-content-wrapper">
 
-                        <div class="item">
-                            <div class="item-content">
-                                <div class="icon-wrapper">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/it-service/t-3.svg"
-                                        alt="image" />
+                            <?php while ($services->have_posts()):
+                                $services->the_post();
+                                $icon = get_field('icon');
+                                $btn_text = get_field('btn_text');
+                                $btn_icon = get_field('btn_icon');
+                                ?>
+
+                                <div class="item">
+                                    <div class="item-content">
+
+                                        <?php if ($icon): ?>
+                                            <div class="icon-wrapper">
+                                                <img src="<?= esc_url($icon['url']); ?>" alt="<?= esc_attr($icon['alt']); ?>">
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <h6>
+                                            <?= esc_html(get_the_title()); ?>
+                                        </h6>
+
+                                        <?php echo the_content(); ?>
+
+                                    </div>
+
+                                    <div class="btn-wrapper">
+                                        <a href="<?= esc_url(get_permalink()); ?>">
+                                            <?= esc_html($btn_text); ?>
+                                        </a>
+                                        <img src="<?= esc_url($btn_icon['url']) ?>" alt="<?= esc_attr($btn_icon['alt']) ?>">
+                                    </div>
                                 </div>
-                                <h6>Ремонт ноутбуков</h6>
-                                <p>
-                                    Система контроля заявок обеспечивает надежный и
-                                    эффективный процесс управления запросами.
-                                </p>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a href="#">Узнать больше</a>
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/home/arrow-up.svg"
-                                    alt="image" />
-                            </div>
+
+                            <?php endwhile;
+                            wp_reset_postdata(); ?>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

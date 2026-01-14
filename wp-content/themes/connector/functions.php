@@ -302,6 +302,22 @@ function register_it_services_post_type()
 add_action('init', 'register_it_services_post_type');
 
 // ------------------------------------------------------------------------
+function register_service_center_post_type()
+{
+	register_post_type('service_center', [
+		'labels' => [
+			'name' => 'Сервисный центр',
+			'singular_name' => 'Сервисный центр',
+		],
+		'public' => true,
+		'has_archive' => false,
+		'menu_icon' => 'dashicons-admin-tools',
+		'supports' => ['title', 'editor', 'page-attributes'],
+		'show_in_rest' => true,
+	]);
+}
+add_action('init', 'register_service_center_post_type');
+// ------------------------------------------------------------------------
 function register_it_products_cpt()
 {
 	register_post_type('it_products', [
