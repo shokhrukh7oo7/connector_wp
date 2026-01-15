@@ -356,30 +356,58 @@ add_action('init', 'register_it_products_cpt');
 // ------------------------------------------------------------------------
 class Header_Menu_Walker extends Walker_Nav_Menu
 {
-
-	// li
 	function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
 	{
-
 		$classes = empty($item->classes) ? [] : (array) $item->classes;
 		$has_children = in_array('menu-item-has-children', $classes);
 
-		$class_names = [];
-		if ($has_children) {
-			$class_names[] = 'has-dropdown';
+		$is_front = is_front_page();
+
+		// URL главной
+		$home_url = untrailingslashit(home_url('/'));
+		$item_url = untrailingslashit($item->url);
+
+		$is_active = false;
+
+		if ($is_front) {
+			// ✅ На главной актив ТОЛЬКО у ссылки на главную
+			if ($item_url === $home_url) {
+				$is_active = true;
+			}
+		} else {
+			// ✅ На внутренних страницах — стандартная логика WP
+			if (
+				in_array('current-menu-item', $classes) ||
+				in_array('current-menu-parent', $classes) ||
+				in_array('current-menu-ancestor', $classes)
+			) {
+				$is_active = true;
+			}
 		}
 
-		$output .= '<li class="' . implode(' ', $class_names) . '">';
-
-		// ссылка
+		$li_classes = [];
 		if ($has_children) {
-			$output .= '<a href="#!" class="dropdown-toggle">' . esc_html($item->title) . '</a>';
+			$li_classes[] = 'has-dropdown';
+		}
+
+		$output .= '<li class="' . esc_attr(implode(' ', $li_classes)) . '">';
+
+		$link_classes = [];
+		if ($is_active) {
+			$link_classes[] = 'active';
+		}
+
+		if ($has_children) {
+			$output .= '<a href="#!" class="dropdown-toggle ' . esc_attr(implode(' ', $link_classes)) . '">'
+				. esc_html($item->title) .
+				'</a>';
 		} else {
-			$output .= '<a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+			$output .= '<a href="' . esc_url($item->url) . '" class="' . esc_attr(implode(' ', $link_classes)) . '">'
+				. esc_html($item->title) .
+				'</a>';
 		}
 	}
 
-	// ul
 	function start_lvl(&$output, $depth = 0, $args = null)
 	{
 		$output .= '<ul class="submenu">';
