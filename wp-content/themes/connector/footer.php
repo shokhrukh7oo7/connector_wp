@@ -79,6 +79,34 @@
             <h2><?= the_field('footer_links_header', 'options_' . pll_current_language()); ?></h2>
 
             <div class="useful-links-wrapper">
+              <?php
+              $menus = [
+                'footer_menu_1',
+                'footer_menu_2',
+                'footer_menu_3',
+                'footer_menu_4',
+              ];
+              foreach ($menus as $menu):
+                if (has_nav_menu($menu)):
+                  ?>
+                  <ul>
+                    <?php
+                    wp_nav_menu([
+                      'theme_location' => $menu,
+                      'container' => false,
+                      'items_wrap' => '%3$s',
+                      'depth' => 1,
+                    ]);
+                    ?>
+                  </ul>
+                  <?php
+                endif;
+              endforeach;
+              ?>
+            </div>
+
+
+            <!-- <div class="useful-links-wrapper">
               <ul>
                 <li><a href="#">IT обслуживание </a></li>
                 <li><a href="#">Инсталляция и настройка ПО </a></li>
@@ -111,7 +139,7 @@
                 <li><a href="#">Видео ĸонференц-связь (ВКС) </a></li>
                 <li><a href="#">Аудио конференции</a></li>
               </ul>
-            </div>
+            </div> -->
 
             <div class="mobile-copyright">
               <p>
