@@ -48,7 +48,7 @@ get_header();
                         <div class="additional-top-right-wrapper">
                             <h2>
                                 <!-- <span class="counter" data-start-year="<?= esc_attr($start_year); ?>">0</span> -->
-                                <span class="counter" data-start-year="2008">0</span>
+                                <span class="counter" data-start-year="2009">0</span>
                                 <span class="counter-suffix"><?= the_field('year'); ?></span>
                             </h2>
                             <p><?= the_field('market'); ?></p>

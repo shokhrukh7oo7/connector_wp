@@ -105,42 +105,6 @@
               ?>
             </div>
 
-
-            <!-- <div class="useful-links-wrapper">
-              <ul>
-                <li><a href="#">IT обслуживание </a></li>
-                <li><a href="#">Инсталляция и настройка ПО </a></li>
-                <li><a href="#">Проектирование IT систем </a></li>
-                <li><a href="#">Поставка IT товаров </a></li>
-                <li><a href="#">Поставка лицензионного ПО</a></li>
-              </ul>
-
-              <ul>
-                <li><a href="#">Монтаж IT систем </a></li>
-                <li><a href="#">Облачные услуги </a></li>
-                <li><a href="#">Решение нестандартных задач </a></li>
-                <li><a href="#">Сервисный центр</a></li>
-              </ul>
-
-              <ul>
-                <li><a href="#">Серверы </a></li>
-                <li><a href="#">Видеонаблюдение </a></li>
-                <li><a href="#">Контроль доступа </a></li>
-                <li><a href="#">IT-безопасность </a></li>
-                <li><a href="#">Лоĸальные сети ЛВС/СКС/ ВОЛС </a></li>
-                <li><a href="#">Корпоративный Wi-Fi</a></li>
-              </ul>
-
-              <ul>
-                <li><a href="#">IP-Телефония </a></li>
-                <li><a href="#">Звукоусиление</a></li>
-                <li><a href="#">ОПС</a></li>
-                <li><a href="#">Решения для видео презентаций </a></li>
-                <li><a href="#">Видео ĸонференц-связь (ВКС) </a></li>
-                <li><a href="#">Аудио конференции</a></li>
-              </ul>
-            </div> -->
-
             <div class="mobile-copyright">
               <p>
                 <?= the_field('copyright_text', 'options_' . pll_current_language()); ?>
