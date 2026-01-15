@@ -51,6 +51,10 @@ function connector_setup()
 	register_nav_menus(
 		array(
 			'header_menu' => esc_html__('Меню в шапке', 'connector'),
+			'footer_menu_1' => esc_html__('Меню в подвале 1', 'connector'),
+			'footer_menu_2' => esc_html__('Меню в подвале 2', 'connector'),
+			'footer_menu_3' => esc_html__('Меню в подвале 3', 'connector'),
+			'footer_menu_4' => esc_html__('Меню в подвале 4', 'connector'),
 		)
 	);
 
