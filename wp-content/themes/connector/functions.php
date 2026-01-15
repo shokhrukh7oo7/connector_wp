@@ -360,15 +360,11 @@ class Header_Menu_Walker extends Walker_Nav_Menu
 	{
 		$classes = empty($item->classes) ? [] : (array) $item->classes;
 		$has_children = in_array('menu-item-has-children', $classes);
-
 		$is_front = is_front_page();
-
 		// URL главной
 		$home_url = untrailingslashit(home_url('/'));
 		$item_url = untrailingslashit($item->url);
-
 		$is_active = false;
-
 		if ($is_front) {
 			// ✅ На главной актив ТОЛЬКО у ссылки на главную
 			if ($item_url === $home_url) {
@@ -384,19 +380,15 @@ class Header_Menu_Walker extends Walker_Nav_Menu
 				$is_active = true;
 			}
 		}
-
 		$li_classes = [];
 		if ($has_children) {
 			$li_classes[] = 'has-dropdown';
 		}
-
 		$output .= '<li class="' . esc_attr(implode(' ', $li_classes)) . '">';
-
 		$link_classes = [];
 		if ($is_active) {
 			$link_classes[] = 'active';
 		}
-
 		if ($has_children) {
 			$output .= '<a href="#!" class="dropdown-toggle ' . esc_attr(implode(' ', $link_classes)) . '">'
 				. esc_html($item->title) .
@@ -407,7 +399,6 @@ class Header_Menu_Walker extends Walker_Nav_Menu
 				'</a>';
 		}
 	}
-
 	function start_lvl(&$output, $depth = 0, $args = null)
 	{
 		$output .= '<ul class="submenu">';
