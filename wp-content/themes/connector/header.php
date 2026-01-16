@@ -99,7 +99,9 @@
 						</div>
 
 						<div class="contact-us-btn-wrapper">
-							<button><?= the_field('contact_us_btn', 'options_' . pll_current_language()); ?></button>
+							<a
+								href="<?= the_field('contact_us_btn_link', 'options_' . pll_current_language()); ?>"><?= the_field('contact_us_btn', 'options_' . pll_current_language()); ?></a>
+							<!-- <button><?= the_field('contact_us_btn', 'options_' . pll_current_language()); ?></button> -->
 						</div>
 					</div>
 

@@ -245,6 +245,17 @@ p {
   position: relative;
   overflow: hidden;
 }
+.header .navbar-right-wrapper .contact-us-btn-wrapper a {
+  background-color: var(--white-color);
+  padding: 8px 16px;
+  color: var(--black-color);
+  border-radius: 52px;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  position: relative;
+  overflow: hidden;
+}
 .header .navbar-right-wrapper .contact-us-btn-wrapper button::before {
   content: "";
   position: absolute;

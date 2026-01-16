@@ -412,8 +412,6 @@ function custom_breadcrumbs()
 	echo '<a href="' . esc_url(home_url('/')) . '">'
 		. esc_html(pll__('Главная')) .
 		'</a>';
-
-	// CPT utility
 	if (is_singular('utility')) {
 		$utilities_page = get_page_by_path('utilities');
 		if ($utilities_page) {
@@ -427,9 +425,7 @@ function custom_breadcrumbs()
 
 			echo ' / <span>' . esc_html(get_the_title()) . '</span>';
 		}
-	}
-	// Pages (Clients, About, Contact и т.д.)
-	elseif (is_page()) {
+	} elseif (is_page()) {
 		echo ' / <span>' . esc_html(get_the_title()) . '</span>';
 	}
 
