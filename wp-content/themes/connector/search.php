@@ -1,53 +1,64 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package connector
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<section class="search-page">
+	<div class="container">
+		<div class="search-header">
+			<h1 class="search-title">
+				<!-- 		  <?= __('Результаты поиска', 'connector'); ?> -->
+				<?= pll__('Результаты поиска'); ?>
+			</h1>
 
-	<main id="primary" class="site-main">
+			<p>
+				<?= pll__('По запросу'); ?>:
+				<span><?= esc_html(get_search_query()); ?></span>
+			</p>
+			<!-- 	  	<?php custom_breadcrumbs(); ?> -->
+		</div>
 
-		<?php if ( have_posts() ) : ?>
+		<?php if (have_posts()): ?>
+			<div class="row-container">
+				<div class="row">
+					<?php while (have_posts()):
+						the_post(); ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'connector' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+						<div class="col-12 p-2">
+							<article class="search-card h-100">
+								<!--<a href="<?php the_permalink(); ?>" class="search-card-image">
+					<?php if (has_post_thumbnail()): ?>
+					  <?php the_post_thumbnail('medium', ['class' => 'img-fluid']); ?>
+					<?php else: ?>
+					  <img src="<?= get_template_directory_uri(); ?>/assets/images/no-image.jpg" class="img-fluid" alt="">
+					<?php endif; ?>
+				  </a> -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+								<div class="search-card-content">
+									<h3>
+										<a href="<?php the_permalink(); ?>">
+											<?php the_title(); ?>
+										</a>
+									</h3>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+									<p><?= wp_trim_words(get_the_excerpt(), 20); ?></p>
 
-			endwhile;
+									<a href="<?php the_permalink(); ?>" class="search-read-more">
+										<?= pll__('Подробнее'); ?>
+									</a>
+								</div>
+							</article>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			</div>
+			<div class="search-pagination">
+				<?php the_posts_pagination(); ?>
+			</div>
+		<?php else: ?>
+			<div class="search-empty text-center py-5">
+				<h2><?= __('Ничего не найдено', 'connector'); ?></h2>
+				<p><?= __('По вашему запросу ничего не найдено.', 'connector'); ?></p>
+			</div>
+		<?php endif; ?>
+	</div>
+</section>
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

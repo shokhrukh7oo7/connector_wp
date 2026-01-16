@@ -437,5 +437,11 @@ add_action('init', function () {
 		pll_register_string('breadcrumbs_home', 'Главная', 'Breadcrumbs');
 		pll_register_string('breadcrumbs_utilities', 'Полезности', 'Breadcrumbs');
 		pll_register_string('back_to_home', 'Назад', 'back_to_home');
+
+		pll_register_string('search_results_title', 'Результаты поиска', 'Search');
+		pll_register_string('search_by_query', 'По запросу', 'Search');
+		pll_register_string('search_read_more', 'Подробнее', 'Search');
+		pll_register_string('search_not_found_title', 'Ничего не найдено', 'Search');
+		pll_register_string('search_not_found_text', 'По вашему запросу ничего не найдено.', 'Search');
 	}
 });
