@@ -83,17 +83,22 @@ get_header();
                     <?php if (have_rows('services')): ?>
                         <?php while (have_rows('services')):
                             the_row(); ?>
-                            <div class="item">
-                                <img class="ornament" src="<?= esc_html(get_sub_field('ornament')['url']); ?>"
+                            <?php
+                            $link = get_sub_field('link');
+                            // 								$url = $link['url'] ?? '#';
+// 								$target = $link['target'] ?? '_self';
+                            ?>
+                            <a href="<?= esc_url($link); ?>" target="_blank" class="item">
+                                <img class="ornament" src="<?= esc_url(get_sub_field('ornament')['url']); ?>"
                                     alt="<?= esc_attr(get_sub_field('ornament')['alt']); ?>" />
                                 <div class="item-content">
                                     <div class="icon-wrapper">
-                                        <img src="<?= esc_html(get_sub_field('icon')['url']); ?>"
+                                        <img src="<?= esc_url(get_sub_field('icon')['url']); ?>"
                                             alt="<?= esc_attr(get_sub_field('icon')['alt']); ?>" />
                                     </div>
-                                    <p><?= nl2br(get_sub_field('text')); ?></p>
+                                    <p><?= nl2br(esc_html(get_sub_field('text'))); ?></p>
                                 </div>
-                            </div>
+                            </a>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
