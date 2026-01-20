@@ -101,7 +101,7 @@ get_header();
                             </a>
                         <?php endwhile; ?>
                     <?php endif; ?>
-                </div>
+                </div> 
             </div>
         </div>
     </section>
